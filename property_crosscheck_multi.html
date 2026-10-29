@@ -44,8 +44,7 @@
   .cols { display: grid; min-height: 0; }
   .col { display: grid; grid-template-rows: auto minmax(0, 1fr); min-height: 0; min-width: 0; }
   .col + .col { border-left: 1px solid var(--line); }
-  .ghead { grid-row: 1; padding: 6px 12px; font-size: 13px; font-weight: 600; text-align: center; background: var(--tile); border-bottom: 1px solid var(--line); }
-  .ghead.blank { background: var(--bg); }
+  .ghead { grid-row: 1; padding: 8px 12px; font-size: 14px; font-weight: 600; background: var(--tile); border-bottom: 1px solid var(--line); }
   .ghead + .ghead { border-left: 1px solid var(--line); }
   .tools { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 8px 12px; border-bottom: 1px solid var(--line); font-size: 12px; color: var(--muted); }
   .tools h2 { margin: 0 6px 0 0; font-size: 14px; color: var(--fg); }
@@ -149,17 +148,20 @@ async function load(name) {
   $("#cols").style.gridTemplateColumns = `repeat(${COLS.length}, minmax(0, 1fr))`;
   const grouped = COLS.some(c => GROUP[c]);
   $("#cols").style.gridTemplateRows = grouped ? "auto minmax(0, 1fr)" : "minmax(0, 1fr)";
+  // With groups, the top row holds each group's name and each ungrouped column's own name, all on one line; grouped
+  // columns show their own name below it.
+  const count = c => DATA.columns.find(x => x.key === c).properties.length;
   const heads = [];
   for (const c of COLS) {
     const last = heads[heads.length - 1];
     if (last && last.group && last.group === GROUP[c]) last.span += 1;
-    else heads.push({ group: GROUP[c], span: 1 });
+    else heads.push({ group: GROUP[c], span: 1, title: GROUP[c] || `${LABEL[c]} (${count(c)})` });
   }
-  $("#cols").innerHTML = (grouped ? heads.map(h => `<div class="ghead${h.group ? "" : " blank"}" style="grid-column: span ${h.span}">${esc(h.group)}</div>`).join("") : "")
+  $("#cols").innerHTML = (grouped ? heads.map(h => `<div class="ghead" style="grid-column: span ${h.span}">${esc(h.title)}</div>`).join("") : "")
     + DATA.columns.map(c => `
     <section class="col" style="grid-row: ${grouped ? 2 : 1}">
       <div class="tools">
-        <h2>${esc(LABEL[c.key])} (${c.properties.length})</h2>
+        ${grouped && !GROUP[c.key] ? "" : `<h2>${esc(LABEL[c.key])} (${c.properties.length})</h2>`}
         <select class="filter" data-col="${c.key}">
           <option value="all">All</option>
           ${others(c.key).map(o => `<option value="not:${o}">Not in ${esc(LABEL[o])}</option>`).join("")}
