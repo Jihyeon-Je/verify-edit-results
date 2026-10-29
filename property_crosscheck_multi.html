@@ -138,9 +138,11 @@ async function load(name) {
   const split = label => label.includes("::") ? label.split("::") : ["", label];
   LABEL = Object.fromEntries(DATA.columns.map(c => [c.key, split(c.label)[1]]));
   GROUP = Object.fromEntries(DATA.columns.map(c => [c.key, split(c.label)[0]]));
-  // How buttons, chips, filters, and counts name a column: its group, plus its own name when the group has several.
+  // How buttons, chips, filters, and counts name a column: its group, plus its own name when the group has several
+  // columns that can be marked against (a no_target column always keeps its own name).
+  const markable = c => !(OPTIONS.no_target || []).includes(c);
   NAME = Object.fromEntries(COLS.map(c => [c, !GROUP[c] ? LABEL[c]
-    : COLS.filter(x => GROUP[x] === GROUP[c]).length > 1 ? `${GROUP[c]} (${LABEL[c].toLowerCase()})` : GROUP[c]]));
+    : !markable(c) || COLS.filter(x => GROUP[x] === GROUP[c] && markable(x)).length > 1 ? `${GROUP[c]} (${LABEL[c].toLowerCase()})` : GROUP[c]]));
   present = Object.fromEntries(COLS.map(c => [c, Object.fromEntries(Object.entries((DATA.state.present || {})[c] || {}).map(([id, o]) => [id, new Set(o)]))]));
   links = (DATA.state.links || []).map(l => [...l]);
   selected = null;
