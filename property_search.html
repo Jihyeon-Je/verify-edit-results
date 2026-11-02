@@ -439,6 +439,17 @@ function render(d) {
     <section class="pool"><h2>Property pool</h2><div class="count">${t.final_set.length} of ${d.pool.length} in the final set</div><ul>${pool}</ul></section>`;
 }
 
+// The property pool scrolls on its own: its height is the room left below its top, so its last line can always be
+// scrolled into view, whether it is stuck to the top of the window or still lower down the page.
+function fitPool() {
+  const pool = document.querySelector(".pool");
+  if (!pool || getComputedStyle(pool).position !== "sticky") return pool && (pool.style.maxHeight = "");
+  pool.style.maxHeight = `${Math.max(200, innerHeight - Math.max(12, pool.getBoundingClientRect().top) - 12)}px`;
+}
+addEventListener("scroll", fitPool, { passive: true });
+addEventListener("resize", fitPool);
+new MutationObserver(fitPool).observe(document.getElementById("main"), { childList: true });
+
 (async () => {
   try {
     const names = STATIC ? Object.keys(STATIC.classes) : await (await fetch("/api/classes")).json();
