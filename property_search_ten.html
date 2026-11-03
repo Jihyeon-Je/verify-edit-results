@@ -26,6 +26,9 @@
   [hidden] { display: none !important; }
   select { font: inherit; font-size: 12px; padding: 2px 4px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); }
   header { padding: 14px 20px 12px; border-bottom: 1px solid var(--line); }
+  .titleblock { display: flex; flex-direction: column; gap: 2px; }
+  .textinput { font-size: 18px; font-weight: normal; color: var(--fg); }
+  .textinput:empty { display: none; }
   .titlerow { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
   h1 { margin: 0; font-size: 18px; }
   .meta { font-size: 12.5px; color: var(--muted); margin-top: 4px; display: flex; gap: 14px; flex-wrap: wrap; }
@@ -174,7 +177,7 @@
 <body>
 <header>
   <div class="titlerow">
-    <h1 id="title">Counterexample search</h1>
+    <div class="titleblock"><h1 id="title">Counterexample search</h1><div class="textinput" id="textinput"></div></div>
     <select id="cls" hidden></select>
     <select id="cmpcls" hidden></select>
     <div class="stages" role="group" aria-label="Stage">
@@ -400,7 +403,8 @@ function render(d) {
   if (stage === 2) return renderNecessary(d);
   const t = d.trace;
   const byId = Object.fromEntries(d.pool.map((p) => [p.id, p]));
-  document.getElementById("title").textContent = `Counterexample search · ${t.class}`;
+  document.getElementById("title").textContent = "Counterexample search";
+  document.getElementById("textinput").textContent = `Text input: “${t.class}”`;
   const added = t.rounds.reduce((n, r) => n + (r.added || []).length, 0);
   document.getElementById("meta").innerHTML = [
     `<span>Run: <b>${esc(d.class.includes("/") ? d.class.split("/").slice(1).join("/") : d.class)}</b></span>`,
