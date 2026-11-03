@@ -1,0 +1,2424 @@
+{
+ "objects": [
+  {
+   "slug": "a-corgi",
+   "name": "a corgi",
+   "group": "Common",
+   "run": "text-2026-11-02-2314-check-looks-measure-realchanged-many",
+   "properties": [
+    {
+     "id": "g01",
+     "text": "There are legs."
+    },
+    {
+     "id": "g02",
+     "text": "There is a body."
+    },
+    {
+     "id": "g03",
+     "text": "The legs are about one quarter as long as the body."
+    },
+    {
+     "id": "g04",
+     "text": "There are four legs."
+    },
+    {
+     "id": "g05",
+     "text": "The legs attach to the underside of the body."
+    },
+    {
+     "id": "g06",
+     "text": "The legs extend downward to the ground."
+    },
+    {
+     "id": "g07",
+     "text": "There is fur."
+    },
+    {
+     "id": "g08",
+     "text": "The body is covered in fur."
+    },
+    {
+     "id": "g09",
+     "text": "There is a head."
+    },
+    {
+     "id": "g10",
+     "text": "There are ears."
+    },
+    {
+     "id": "g11",
+     "text": "There are two ears."
+    },
+    {
+     "id": "g12",
+     "text": "The ears are erect."
+    },
+    {
+     "id": "g13",
+     "text": "The ears are triangular."
+    },
+    {
+     "id": "g14",
+     "text": "There is a muzzle."
+    },
+    {
+     "id": "g15",
+     "text": "The fur is tan on the back."
+    },
+    {
+     "id": "g16",
+     "text": "There is a chest."
+    },
+    {
+     "id": "g17",
+     "text": "The fur is white on the chest."
+    },
+    {
+     "id": "g18",
+     "text": "There is a tail."
+    },
+    {
+     "id": "g19",
+     "text": "The tail is less than one quarter as long as the body."
+    },
+    {
+     "id": "g20",
+     "text": "There are eyes."
+    },
+    {
+     "id": "g21",
+     "text": "There are two eyes."
+    },
+    {
+     "id": "g22",
+     "text": "The eyes are on the head."
+    },
+    {
+     "id": "g23",
+     "text": "There is a skull."
+    },
+    {
+     "id": "g24",
+     "text": "The muzzle is about as long as the skull behind it."
+    },
+    {
+     "id": "g25",
+     "text": "There is a nose."
+    },
+    {
+     "id": "g26",
+     "text": "The nose is black."
+    },
+    {
+     "id": "g27",
+     "text": "The ears are each about one third as tall as the body is long."
+    },
+    {
+     "id": "g28",
+     "text": "There is a neck."
+    },
+    {
+     "id": "g29",
+     "text": "The neck is less than one third as long as the body."
+    },
+    {
+     "id": "g30",
+     "text": "The head is held about level with the top of the back."
+    },
+    {
+     "id": "g31",
+     "text": "The body is about twice as long as it is tall at the shoulder."
+    },
+    {
+     "id": "g32",
+     "text": "There are front legs."
+    },
+    {
+     "id": "g33",
+     "text": "There are hind legs."
+    },
+    {
+     "id": "g34",
+     "text": "The front legs are as long as the hind legs."
+    },
+    {
+     "id": "g35",
+     "text": "There are no whiskers longer than the muzzle."
+    },
+    {
+     "id": "g36",
+     "text": "The ears are on top of the head."
+    },
+    {
+     "id": "g37",
+     "text": "The neck attaches to the front end of the body."
+    },
+    {
+     "id": "g38",
+     "text": "The head faces forward along the length of the body."
+    },
+    {
+     "id": "g39",
+     "text": "The tail is at the rear end of the body, opposite the head."
+    },
+    {
+     "id": "g40",
+     "text": "The top of the back is free of protruding parts."
+    },
+    {
+     "id": "g41",
+     "text": "The body is longer from front to back than it is wide from side to side."
+    },
+    {
+     "id": "g42",
+     "text": "The body is about half as wide side to side as it is tall at the shoulder."
+    },
+    {
+     "id": "g43",
+     "text": "Each leg is less than one third as thick as the body is tall."
+    },
+    {
+     "id": "g44",
+     "text": "There are visible gaps between the front legs and the hind legs beneath the body."
+    },
+    {
+     "id": "g45",
+     "text": "The legs attach near the midline of the body rather than at its side corners."
+    },
+    {
+     "id": "g46",
+     "text": "The muzzle is narrower from side to side than the skull."
+    },
+    {
+     "id": "g47",
+     "text": "The muzzle tapers toward the nose."
+    },
+    {
+     "id": "g48",
+     "text": "The eyes are on opposite sides of the head's midline."
+    },
+    {
+     "id": "g49",
+     "text": "The eyes are side by side at the same height."
+    },
+    {
+     "id": "g50",
+     "text": "The head is bilaterally symmetric."
+    },
+    {
+     "id": "g51",
+     "text": "The legs are arranged in two pairs."
+    },
+    {
+     "id": "g52",
+     "text": "Each pair of legs has one left leg and one right leg."
+    },
+    {
+     "id": "g53",
+     "text": "The front legs are side by side at the same distance from the front of the body."
+    },
+    {
+     "id": "g54",
+     "text": "The legs are spread across the width of the body."
+    },
+    {
+     "id": "g55",
+     "text": "The legs give a stance about as wide as the body."
+    },
+    {
+     "id": "g56",
+     "text": "The eyes are on the skull."
+    },
+    {
+     "id": "g57",
+     "text": "The eyes are behind the muzzle."
+    },
+    {
+     "id": "g58",
+     "text": "The eyes are separated from the nose by the length of the muzzle."
+    },
+    {
+     "id": "g59",
+     "text": "The eyes are above the level of the nose."
+    },
+    {
+     "id": "g60",
+     "text": "The front legs attach beneath the front quarter of the body."
+    },
+    {
+     "id": "g61",
+     "text": "The hind legs attach beneath the rear quarter of the body."
+    },
+    {
+     "id": "g62",
+     "text": "The gap between the front legs and the hind legs is more than half as long as the body."
+    },
+    {
+     "id": "g63",
+     "text": "The chest is directly above the front legs."
+    },
+    {
+     "id": "g64",
+     "text": "There is a rump."
+    },
+    {
+     "id": "g65",
+     "text": "The rump is directly above the hind legs."
+    },
+    {
+     "id": "g66",
+     "text": "The body extends beyond the front legs by less than one quarter of its length."
+    },
+    {
+     "id": "g67",
+     "text": "The head is about one third as long as the body."
+    },
+    {
+     "id": "g68",
+     "text": "The head is narrower from side to side than the body is long."
+    },
+    {
+     "id": "g69",
+     "text": "Each ear is about as wide at the base as it is tall."
+    },
+    {
+     "id": "g70",
+     "text": "The two ears together span less than the width of the body."
+    },
+    {
+     "id": "g71",
+     "text": "The ears are each about one quarter as tall as the head is long."
+    },
+    {
+     "id": "g72",
+     "text": "Each eye is less than one fifth as wide as the skull."
+    },
+    {
+     "id": "g73",
+     "text": "The eyes are set flush within the skull rather than bulging out from it."
+    },
+    {
+     "id": "g74",
+     "text": "The nose is less than one quarter as wide as the head."
+    },
+    {
+     "id": "g75",
+     "text": "The nose is no wider than the tip of the muzzle it sits on."
+    },
+    {
+     "id": "g76",
+     "text": "The nose sits on the tip of the muzzle."
+    },
+    {
+     "id": "g77",
+     "text": "The two ears are side by side, one on each side of the head's midline."
+    },
+    {
+     "id": "g78",
+     "text": "The ears are at the same distance from the nose."
+    },
+    {
+     "id": "g79",
+     "text": "The muzzle is straight along its length."
+    },
+    {
+     "id": "g80",
+     "text": "The nose points forward."
+    },
+    {
+     "id": "g81",
+     "text": "The muzzle extends forward horizontally from the skull."
+    }
+   ]
+  },
+  {
+   "slug": "a-dolphin",
+   "name": "a dolphin",
+   "group": "Common",
+   "run": "text-2026-11-02-2256-check-looks-measure-realchanged-many",
+   "properties": [
+    {
+     "id": "g01",
+     "text": "There is a dorsal fin."
+    },
+    {
+     "id": "g02",
+     "text": "There are tail flukes."
+    },
+    {
+     "id": "g03",
+     "text": "The tail flukes are horizontal."
+    },
+    {
+     "id": "g04",
+     "text": "The dorsal fin spans less than a quarter of the back's length."
+    },
+    {
+     "id": "g05",
+     "text": "The dorsal fin is curved backward."
+    },
+    {
+     "id": "g06",
+     "text": "There is a snout."
+    },
+    {
+     "id": "g07",
+     "text": "There is a beak."
+    },
+    {
+     "id": "g08",
+     "text": "The snout extends forward into a beak."
+    },
+    {
+     "id": "g09",
+     "text": "There is a head."
+    },
+    {
+     "id": "g10",
+     "text": "There is a blowhole."
+    },
+    {
+     "id": "g11",
+     "text": "The blowhole is on top of the head."
+    },
+    {
+     "id": "g12",
+     "text": "There are pectoral flippers."
+    },
+    {
+     "id": "g13",
+     "text": "There are two pectoral flippers."
+    },
+    {
+     "id": "g14",
+     "text": "There is a body."
+    },
+    {
+     "id": "g15",
+     "text": "The body is gray."
+    },
+    {
+     "id": "g16",
+     "text": "The body is fusiform."
+    },
+    {
+     "id": "g17",
+     "text": "The body tapers at both ends."
+    },
+    {
+     "id": "g18",
+     "text": "The body is about four times as long as it is tall."
+    },
+    {
+     "id": "g19",
+     "text": "There is skin."
+    },
+    {
+     "id": "g20",
+     "text": "The skin is smooth."
+    },
+    {
+     "id": "g21",
+     "text": "The skin lacks scales."
+    },
+    {
+     "id": "g22",
+     "text": "The pectoral flippers are each less than a fifth as long as the body."
+    },
+    {
+     "id": "g23",
+     "text": "The beak is less than a tenth as long as the body."
+    },
+    {
+     "id": "g24",
+     "text": "There is a melon."
+    },
+    {
+     "id": "g25",
+     "text": "The melon on the forehead is rounded."
+    },
+    {
+     "id": "g26",
+     "text": "The melon on the forehead bulges above the beak."
+    },
+    {
+     "id": "g27",
+     "text": "There is a crease."
+    },
+    {
+     "id": "g28",
+     "text": "The beak is distinctly set off from the melon by a crease."
+    },
+    {
+     "id": "g29",
+     "text": "The dorsal fin is located near the middle of the back."
+    },
+    {
+     "id": "g30",
+     "text": "There is a mouth."
+    },
+    {
+     "id": "g31",
+     "text": "There are teeth."
+    },
+    {
+     "id": "g32",
+     "text": "The mouth contains the teeth."
+    },
+    {
+     "id": "g33",
+     "text": "The teeth are arranged in rows."
+    },
+    {
+     "id": "g34",
+     "text": "The teeth are conical."
+    },
+    {
+     "id": "g35",
+     "text": "The underside of the body is lighter than the back."
+    },
+    {
+     "id": "g36",
+     "text": "The dorsal fin is shorter in height than the body is tall."
+    },
+    {
+     "id": "g37",
+     "text": "The tail flukes span less than a third of the body's length."
+    },
+    {
+     "id": "g38",
+     "text": "The dorsal fin is shorter in height than the tail flukes are wide."
+    },
+    {
+     "id": "g39",
+     "text": "The tail flukes are narrower in span than the body is long."
+    },
+    {
+     "id": "g40",
+     "text": "The tail flukes are attached at the rear end of the body."
+    },
+    {
+     "id": "g41",
+     "text": "The pectoral flippers project from the sides of the body."
+    },
+    {
+     "id": "g42",
+     "text": "The pectoral flippers are located on the front half of the body."
+    },
+    {
+     "id": "g43",
+     "text": "The pectoral flippers are located below the dorsal fin's level."
+    },
+    {
+     "id": "g44",
+     "text": "The pectoral flippers are located in front of the dorsal fin."
+    },
+    {
+     "id": "g45",
+     "text": "There is a tail stock."
+    },
+    {
+     "id": "g46",
+     "text": "The tail stock narrows toward the rear."
+    },
+    {
+     "id": "g47",
+     "text": "The tail stock ends in the tail flukes."
+    },
+    {
+     "id": "g48",
+     "text": "The underside of the body bears no fins or flukes."
+    },
+    {
+     "id": "g49",
+     "text": "The top of the back bears only the dorsal fin."
+    }
+   ]
+  },
+  {
+   "slug": "a-spider",
+   "name": "a spider",
+   "group": "Common",
+   "run": "text-2026-11-02-2256-check-looks-measure-realchanged-many",
+   "properties": [
+    {
+     "id": "g01",
+     "text": "There are legs."
+    },
+    {
+     "id": "g02",
+     "text": "There are eight legs."
+    },
+    {
+     "id": "g03",
+     "text": "There is a body."
+    },
+    {
+     "id": "g04",
+     "text": "The body has two main sections."
+    },
+    {
+     "id": "g05",
+     "text": "There is a waist."
+    },
+    {
+     "id": "g06",
+     "text": "The two main sections are joined by the waist."
+    },
+    {
+     "id": "g07",
+     "text": "The waist is narrow."
+    },
+    {
+     "id": "g08",
+     "text": "There is a rear body section."
+    },
+    {
+     "id": "g09",
+     "text": "The rear body section is rounded."
+    },
+    {
+     "id": "g10",
+     "text": "The rear body section is unsegmented."
+    },
+    {
+     "id": "g11",
+     "text": "There is no stinger."
+    },
+    {
+     "id": "g12",
+     "text": "There are no pincers."
+    },
+    {
+     "id": "g13",
+     "text": "There is a front body section."
+    },
+    {
+     "id": "g14",
+     "text": "The legs attach to the sides of the front body section."
+    },
+    {
+     "id": "g15",
+     "text": "The legs radiate outward from the body."
+    },
+    {
+     "id": "g16",
+     "text": "The legs extend downward from the body."
+    },
+    {
+     "id": "g17",
+     "text": "The legs reach down to the ground."
+    },
+    {
+     "id": "g18",
+     "text": "Each leg is longer than the front body section."
+    },
+    {
+     "id": "g19",
+     "text": "There are joints."
+    },
+    {
+     "id": "g20",
+     "text": "Each leg has multiple visible joints."
+    },
+    {
+     "id": "g21",
+     "text": "The joints are bent."
+    },
+    {
+     "id": "g22",
+     "text": "There are palps."
+    },
+    {
+     "id": "g23",
+     "text": "There is a pair of palps."
+    },
+    {
+     "id": "g24",
+     "text": "The palps are short."
+    },
+    {
+     "id": "g25",
+     "text": "The palps are leg-like."
+    },
+    {
+     "id": "g26",
+     "text": "The palps are at the front of the body."
+    },
+    {
+     "id": "g27",
+     "text": "There is a head region."
+    },
+    {
+     "id": "g28",
+     "text": "There are eyes."
+    },
+    {
+     "id": "g29",
+     "text": "There are multiple eyes."
+    },
+    {
+     "id": "g30",
+     "text": "The eyes are clustered on the front of the head region."
+    },
+    {
+     "id": "g31",
+     "text": "The body is raised above the ground on the legs."
+    },
+    {
+     "id": "g32",
+     "text": "The waist is shorter than the front body section."
+    },
+    {
+     "id": "g33",
+     "text": "The front body section directly abuts the rear body section at the waist."
+    },
+    {
+     "id": "g34",
+     "text": "The rear body section is less than three times as long as the front body section."
+    },
+    {
+     "id": "g35",
+     "text": "Each leg is longer than the rear body section."
+    },
+    {
+     "id": "g36",
+     "text": "The legs extend outward beyond the outline of the rear body section."
+    },
+    {
+     "id": "g37",
+     "text": "Each leg is longer than the waist."
+    },
+    {
+     "id": "g38",
+     "text": "The front body section is less than twice as long as it is wide."
+    },
+    {
+     "id": "g39",
+     "text": "Each leg is narrower than the front body section."
+    },
+    {
+     "id": "g40",
+     "text": "The rear body section is wider than the front body section."
+    },
+    {
+     "id": "g41",
+     "text": "Each leg is less than one quarter as wide as the rear body section."
+    },
+    {
+     "id": "g42",
+     "text": "The legs are slender relative to their length."
+    },
+    {
+     "id": "g43",
+     "text": "The rear body section is at least as long as the front body section."
+    },
+    {
+     "id": "g44",
+     "text": "Each leg has about seven segments."
+    },
+    {
+     "id": "g45",
+     "text": "There are leg segments."
+    },
+    {
+     "id": "g46",
+     "text": "The leg segments between joints are straight."
+    },
+    {
+     "id": "g47",
+     "text": "The leg segments between joints are rigid."
+    },
+    {
+     "id": "g48",
+     "text": "Each leg is less than ten times as long as the body."
+    },
+    {
+     "id": "g49",
+     "text": "Each leg is at least one twentieth as wide as it is long."
+    },
+    {
+     "id": "g50",
+     "text": "The body is at the center of the figure."
+    },
+    {
+     "id": "g51",
+     "text": "The body is the visually dominant mass of the figure."
+    },
+    {
+     "id": "g52",
+     "text": "The legs are arranged in four pairs."
+    },
+    {
+     "id": "g53",
+     "text": "The leg pairs are on opposite sides of the front body section."
+    }
+   ]
+  },
+  {
+   "slug": "the-statue-of-liberty",
+   "name": "the statue of liberty",
+   "group": "Common",
+   "run": "text-2026-11-02-2315-check-looks-measure-realchanged-many",
+   "properties": [
+    {
+     "id": "g01",
+     "text": "There is a right arm."
+    },
+    {
+     "id": "g02",
+     "text": "There is a torch."
+    },
+    {
+     "id": "g03",
+     "text": "There is a head."
+    },
+    {
+     "id": "g04",
+     "text": "The right arm is raised."
+    },
+    {
+     "id": "g05",
+     "text": "The right arm holds the torch."
+    },
+    {
+     "id": "g06",
+     "text": "The torch is above the head."
+    },
+    {
+     "id": "g07",
+     "text": "There is a crown."
+    },
+    {
+     "id": "g08",
+     "text": "The crown is on the head."
+    },
+    {
+     "id": "g09",
+     "text": "There are spikes."
+    },
+    {
+     "id": "g10",
+     "text": "The crown has seven spikes."
+    },
+    {
+     "id": "g11",
+     "text": "The spikes on the crown are radiating."
+    },
+    {
+     "id": "g12",
+     "text": "There is a robe."
+    },
+    {
+     "id": "g13",
+     "text": "There are shoulders."
+    },
+    {
+     "id": "g14",
+     "text": "There are feet."
+    },
+    {
+     "id": "g15",
+     "text": "The robe is draped from the shoulders to the feet."
+    },
+    {
+     "id": "g16",
+     "text": "The surface is copper-green."
+    },
+    {
+     "id": "g17",
+     "text": "There is a tablet."
+    },
+    {
+     "id": "g18",
+     "text": "There is a left arm."
+    },
+    {
+     "id": "g19",
+     "text": "The tablet is held in the left arm."
+    },
+    {
+     "id": "g20",
+     "text": "The head sits on top of the shoulders."
+    },
+    {
+     "id": "g21",
+     "text": "There is a body."
+    },
+    {
+     "id": "g22",
+     "text": "The raised right arm is about one third as long as the body is tall."
+    },
+    {
+     "id": "g23",
+     "text": "There is a pedestal."
+    },
+    {
+     "id": "g24",
+     "text": "The pedestal is beneath the feet."
+    },
+    {
+     "id": "g25",
+     "text": "There is a torch flame."
+    },
+    {
+     "id": "g26",
+     "text": "The torch flame is gold."
+    },
+    {
+     "id": "g27",
+     "text": "There is a figure."
+    },
+    {
+     "id": "g28",
+     "text": "The figure has two feet."
+    },
+    {
+     "id": "g29",
+     "text": "The figure stands upright."
+    },
+    {
+     "id": "g30",
+     "text": "The figure stands with both feet in place."
+    },
+    {
+     "id": "g31",
+     "text": "Each crown spike is shorter than the head is tall."
+    },
+    {
+     "id": "g32",
+     "text": "The crown spans about the width of the shoulders."
+    },
+    {
+     "id": "g33",
+     "text": "The tablet is about one quarter as tall as the body."
+    },
+    {
+     "id": "g34",
+     "text": "The tablet is narrower than the shoulders."
+    },
+    {
+     "id": "g35",
+     "text": "The body is the tallest part of the figure."
+    },
+    {
+     "id": "g36",
+     "text": "There are two arms."
+    },
+    {
+     "id": "g37",
+     "text": "The robe at the feet is about as wide as the shoulders."
+    },
+    {
+     "id": "g38",
+     "text": "There are folds."
+    },
+    {
+     "id": "g39",
+     "text": "The robe hangs in vertical folds."
+    },
+    {
+     "id": "g40",
+     "text": "The robe hangs close to the body."
+    },
+    {
+     "id": "g41",
+     "text": "There is a torso."
+    },
+    {
+     "id": "g42",
+     "text": "The torso has no arms other than the right and left arms."
+    },
+    {
+     "id": "g43",
+     "text": "The torch flame is shorter than the head is tall."
+    },
+    {
+     "id": "g44",
+     "text": "The torch flame is narrower than the shoulders."
+    },
+    {
+     "id": "g45",
+     "text": "The feet are mostly covered by the robe hem."
+    },
+    {
+     "id": "g46",
+     "text": "Each foot is shorter than the head is tall."
+    },
+    {
+     "id": "g47",
+     "text": "The feet do not extend beyond the outline of the pedestal top."
+    },
+    {
+     "id": "g48",
+     "text": "There is a right shoulder."
+    },
+    {
+     "id": "g49",
+     "text": "The right arm attaches at the right shoulder."
+    },
+    {
+     "id": "g50",
+     "text": "The pedestal is about as tall as the figure."
+    },
+    {
+     "id": "g51",
+     "text": "The pedestal top is several times wider than the shoulders."
+    },
+    {
+     "id": "g52",
+     "text": "The pedestal is a tapered rectangular block."
+    },
+    {
+     "id": "g53",
+     "text": "The crown is not covered by any arm."
+    },
+    {
+     "id": "g54",
+     "text": "There is an elbow."
+    },
+    {
+     "id": "g55",
+     "text": "The left arm is bent at the elbow."
+    },
+    {
+     "id": "g56",
+     "text": "The tablet is held against the body."
+    },
+    {
+     "id": "g57",
+     "text": "There is a left shoulder."
+    },
+    {
+     "id": "g58",
+     "text": "The left arm hangs lower than the left shoulder."
+    },
+    {
+     "id": "g59",
+     "text": "The tablet is below the shoulders."
+    },
+    {
+     "id": "g60",
+     "text": "The tablet is lower than the torch by more than half the body height."
+    },
+    {
+     "id": "g61",
+     "text": "The left arm stays within the side outline of the robe."
+    },
+    {
+     "id": "g62",
+     "text": "The right arm is raised above the head."
+    },
+    {
+     "id": "g63",
+     "text": "The left arm is not raised above the head."
+    },
+    {
+     "id": "g64",
+     "text": "The torch is shorter than the head is tall."
+    },
+    {
+     "id": "g65",
+     "text": "The torch is narrower than the shoulders."
+    },
+    {
+     "id": "g66",
+     "text": "The top of the torch flame is less than one third of the body height above the head."
+    }
+   ]
+  },
+  {
+   "slug": "a-mountain-bike",
+   "name": "a mountain bike",
+   "group": "Common",
+   "run": "text-2026-11-02-2255-check-looks-measure-realchanged-many",
+   "properties": [
+    {
+     "id": "g01",
+     "text": "There are wheels."
+    },
+    {
+     "id": "g02",
+     "text": "There are two wheels."
+    },
+    {
+     "id": "g03",
+     "text": "The two wheels are arranged one in front of the other along the same line."
+    },
+    {
+     "id": "g04",
+     "text": "There is a front wheel."
+    },
+    {
+     "id": "g05",
+     "text": "There is a rear wheel."
+    },
+    {
+     "id": "g06",
+     "text": "The front wheel is about the same diameter as the rear wheel."
+    },
+    {
+     "id": "g07",
+     "text": "There are tires."
+    },
+    {
+     "id": "g08",
+     "text": "The tires have knobby treads."
+    },
+    {
+     "id": "g09",
+     "text": "There is a seat."
+    },
+    {
+     "id": "g10",
+     "text": "There are pedals."
+    },
+    {
+     "id": "g11",
+     "text": "There is a chain."
+    },
+    {
+     "id": "g12",
+     "text": "There is a frame."
+    },
+    {
+     "id": "g13",
+     "text": "The frame has a diamond-like triangular shape."
+    },
+    {
+     "id": "g14",
+     "text": "The frame is between the wheels."
+    },
+    {
+     "id": "g15",
+     "text": "There is a front suspension fork."
+    },
+    {
+     "id": "g16",
+     "text": "The front suspension fork holds the front wheel."
+    },
+    {
+     "id": "g17",
+     "text": "There is a handlebar."
+    },
+    {
+     "id": "g18",
+     "text": "There is a fork."
+    },
+    {
+     "id": "g19",
+     "text": "The handlebar is a bar."
+    },
+    {
+     "id": "g20",
+     "text": "The handlebar is horizontal."
+    },
+    {
+     "id": "g21",
+     "text": "The handlebar is attached to the top of the fork."
+    },
+    {
+     "id": "g22",
+     "text": "There is a front tire."
+    },
+    {
+     "id": "g23",
+     "text": "There is a rear tire."
+    },
+    {
+     "id": "g24",
+     "text": "The gap between the front and rear tires is shorter than the diameter of one wheel."
+    },
+    {
+     "id": "g25",
+     "text": "There is a pedal crank axle."
+    },
+    {
+     "id": "g26",
+     "text": "There are wheel axles."
+    },
+    {
+     "id": "g27",
+     "text": "The pedal crank axle sits slightly below the level of the wheel axles."
+    },
+    {
+     "id": "g28",
+     "text": "Each wheel's diameter is about 40 percent of the overall length of the object."
+    },
+    {
+     "id": "g29",
+     "text": "There is a rear wheel hub."
+    },
+    {
+     "id": "g30",
+     "text": "There is a cluster of sprockets."
+    },
+    {
+     "id": "g31",
+     "text": "The cluster has multiple sprockets."
+    },
+    {
+     "id": "g32",
+     "text": "The cluster of sprockets is on the rear wheel hub."
+    },
+    {
+     "id": "g33",
+     "text": "There is a rear derailleur."
+    },
+    {
+     "id": "g34",
+     "text": "There is a seat post."
+    },
+    {
+     "id": "g35",
+     "text": "The seat post extends above the frame."
+    },
+    {
+     "id": "g36",
+     "text": "The seat post extends above the frame by a length about a third of the wheel diameter."
+    },
+    {
+     "id": "g37",
+     "text": "There is a frame tube running from the pedals up to the seat."
+    },
+    {
+     "id": "g38",
+     "text": "Each wheel's diameter is greater than the length of the frame tube running from the pedals up to the seat."
+    },
+    {
+     "id": "g39",
+     "text": "The handlebar width is less than the diameter of one wheel."
+    },
+    {
+     "id": "g40",
+     "text": "The handlebar sits at about the same height as the seat."
+    },
+    {
+     "id": "g41",
+     "text": "There is a fork steerer."
+    },
+    {
+     "id": "g42",
+     "text": "The fork steerer extends above the frame."
+    },
+    {
+     "id": "g43",
+     "text": "The fork steerer extends above the frame by less than a quarter of the wheel diameter."
+    },
+    {
+     "id": "g44",
+     "text": "The overall height of the object is less than its overall length."
+    },
+    {
+     "id": "g45",
+     "text": "The overall width of the object is less than half of its overall length."
+    },
+    {
+     "id": "g46",
+     "text": "The wheels are circular."
+    },
+    {
+     "id": "g47",
+     "text": "The tires are circular."
+    },
+    {
+     "id": "g48",
+     "text": "Each tire's width is less than a tenth of the wheel diameter."
+    },
+    {
+     "id": "g49",
+     "text": "Each wheel's width is less than a tenth of its diameter."
+    },
+    {
+     "id": "g50",
+     "text": "Each tire is narrower than the handlebar width by a factor of more than five."
+    },
+    {
+     "id": "g51",
+     "text": "The tires are exposed."
+    },
+    {
+     "id": "g52",
+     "text": "There are no fenders over the tires."
+    },
+    {
+     "id": "g53",
+     "text": "The space above the rear wheel behind the seat post is empty."
+    },
+    {
+     "id": "g54",
+     "text": "There is a down tube of the frame."
+    },
+    {
+     "id": "g55",
+     "text": "The down tube of the frame is a plain tube."
+    },
+    {
+     "id": "g56",
+     "text": "The down tube of the frame has nothing attached along it."
+    },
+    {
+     "id": "g57",
+     "text": "There is a chainring."
+    },
+    {
+     "id": "g58",
+     "text": "The crank area around the pedal crank axle is compact."
+    },
+    {
+     "id": "g59",
+     "text": "Only a chainring is around the pedal crank axle."
+    },
+    {
+     "id": "g60",
+     "text": "The chainring is exposed."
+    },
+    {
+     "id": "g61",
+     "text": "There are no lamps on the handlebar."
+    },
+    {
+     "id": "g62",
+     "text": "There are no lamps on the frame."
+    },
+    {
+     "id": "g63",
+     "text": "There are no bags on the sides of the rear wheel."
+    },
+    {
+     "id": "g64",
+     "text": "There is no kickstand."
+    },
+    {
+     "id": "g65",
+     "text": "There is no display on the handlebar."
+    }
+   ]
+  },
+  {
+   "slug": "a-unicorn",
+   "name": "a unicorn",
+   "group": "Uncommon",
+   "run": "text-2026-11-02-2237-check-looks-measure-realchanged-many",
+   "properties": [
+    {
+     "id": "g01",
+     "text": "There is a horn."
+    },
+    {
+     "id": "g02",
+     "text": "There is a single horn."
+    },
+    {
+     "id": "g03",
+     "text": "There is a forehead."
+    },
+    {
+     "id": "g04",
+     "text": "The horn projects from the center of the forehead."
+    },
+    {
+     "id": "g05",
+     "text": "There are legs."
+    },
+    {
+     "id": "g06",
+     "text": "There are four legs."
+    },
+    {
+     "id": "g07",
+     "text": "There are hooves."
+    },
+    {
+     "id": "g08",
+     "text": "Each leg ends in a hoof."
+    },
+    {
+     "id": "g09",
+     "text": "Each hoof is solid."
+    },
+    {
+     "id": "g10",
+     "text": "There is a mane."
+    },
+    {
+     "id": "g11",
+     "text": "There is a neck."
+    },
+    {
+     "id": "g12",
+     "text": "The mane is along the top of the neck."
+    },
+    {
+     "id": "g13",
+     "text": "There is a body."
+    },
+    {
+     "id": "g14",
+     "text": "There is hair."
+    },
+    {
+     "id": "g15",
+     "text": "The body is covered in hair."
+    },
+    {
+     "id": "g16",
+     "text": "The hair is short."
+    },
+    {
+     "id": "g17",
+     "text": "The body is white."
+    },
+    {
+     "id": "g18",
+     "text": "There is a head."
+    },
+    {
+     "id": "g19",
+     "text": "The neck is about as long as the head."
+    },
+    {
+     "id": "g20",
+     "text": "The horn is straight."
+    },
+    {
+     "id": "g21",
+     "text": "The horn tapers to a sharp point."
+    },
+    {
+     "id": "g22",
+     "text": "The horn has a spiral groove twisting around its length."
+    },
+    {
+     "id": "g23",
+     "text": "The horn is about as long as the head."
+    },
+    {
+     "id": "g24",
+     "text": "There is a tail."
+    },
+    {
+     "id": "g25",
+     "text": "The tail is of hair."
+    },
+    {
+     "id": "g26",
+     "text": "The hair of the tail is long."
+    },
+    {
+     "id": "g27",
+     "text": "There is a muzzle."
+    },
+    {
+     "id": "g28",
+     "text": "The muzzle is elongated."
+    },
+    {
+     "id": "g29",
+     "text": "There are nostrils."
+    },
+    {
+     "id": "g30",
+     "text": "The nostrils are at the tip of the muzzle."
+    },
+    {
+     "id": "g31",
+     "text": "The body is about as long as the legs are tall."
+    },
+    {
+     "id": "g32",
+     "text": "The body is about one and a half times as long as it is tall."
+    },
+    {
+     "id": "g33",
+     "text": "There are ears."
+    },
+    {
+     "id": "g34",
+     "text": "There are two ears."
+    },
+    {
+     "id": "g35",
+     "text": "The ears are erect."
+    },
+    {
+     "id": "g36",
+     "text": "Each ear is about one quarter as long as the head."
+    },
+    {
+     "id": "g37",
+     "text": "The ears are on top of the head behind the horn."
+    },
+    {
+     "id": "g38",
+     "text": "The legs extend from the underside of the body."
+    },
+    {
+     "id": "g39",
+     "text": "The legs extend downward."
+    },
+    {
+     "id": "g40",
+     "text": "The hooves rest on the ground beneath the body."
+    },
+    {
+     "id": "g41",
+     "text": "The neck rises from the front end of the body."
+    },
+    {
+     "id": "g42",
+     "text": "The tail is at the opposite end of the body from the neck."
+    },
+    {
+     "id": "g43",
+     "text": "There are shoulders."
+    },
+    {
+     "id": "g44",
+     "text": "The neck is between the head and the shoulders."
+    },
+    {
+     "id": "g45",
+     "text": "The head is about one third as long as the body."
+    },
+    {
+     "id": "g46",
+     "text": "There are front legs."
+    },
+    {
+     "id": "g47",
+     "text": "The front legs are beneath the front end of the body."
+    },
+    {
+     "id": "g48",
+     "text": "There are hind legs."
+    },
+    {
+     "id": "g49",
+     "text": "The hind legs are beneath the rear end of the body."
+    },
+    {
+     "id": "g50",
+     "text": "The front legs are separated from the hind legs by most of the body's length."
+    },
+    {
+     "id": "g51",
+     "text": "The legs are about twice as tall as the head is long."
+    },
+    {
+     "id": "g52",
+     "text": "The body is narrower from side to side than it is tall."
+    },
+    {
+     "id": "g53",
+     "text": "The body is about one third as wide as it is long."
+    },
+    {
+     "id": "g54",
+     "text": "There are left legs."
+    },
+    {
+     "id": "g55",
+     "text": "There are right legs."
+    },
+    {
+     "id": "g56",
+     "text": "The left legs are separated from the right legs by less than the height of the legs."
+    },
+    {
+     "id": "g57",
+     "text": "Each leg is about one sixth as thick as the body is tall."
+    },
+    {
+     "id": "g58",
+     "text": "Each leg is about ten times as tall as it is thick."
+    },
+    {
+     "id": "g59",
+     "text": "There are knees."
+    },
+    {
+     "id": "g60",
+     "text": "Each leg narrows below the knee."
+    },
+    {
+     "id": "g61",
+     "text": "There are eyes."
+    },
+    {
+     "id": "g62",
+     "text": "There are two eyes."
+    },
+    {
+     "id": "g63",
+     "text": "The eyes are on the sides of the head."
+    },
+    {
+     "id": "g64",
+     "text": "Each hoof is about as wide as the leg is thick."
+    },
+    {
+     "id": "g65",
+     "text": "Each hoof is about one tenth as wide as the body is long."
+    },
+    {
+     "id": "g66",
+     "text": "The neck is narrower than the body is tall."
+    },
+    {
+     "id": "g67",
+     "text": "The neck is about half as thick as the body is tall."
+    },
+    {
+     "id": "g68",
+     "text": "The neck tapers toward the head."
+    },
+    {
+     "id": "g69",
+     "text": "The neck is distinct from the body."
+    },
+    {
+     "id": "g70",
+     "text": "The mane hangs no lower than the bottom edge of the neck."
+    },
+    {
+     "id": "g71",
+     "text": "There is mane hair."
+    },
+    {
+     "id": "g72",
+     "text": "The mane hair is shorter than the neck is long."
+    },
+    {
+     "id": "g73",
+     "text": "The body's sides are uncovered by the mane."
+    },
+    {
+     "id": "g74",
+     "text": "The legs are uncovered by the mane."
+    },
+    {
+     "id": "g75",
+     "text": "The mane is separated from the ground by more than the height of the legs."
+    },
+    {
+     "id": "g76",
+     "text": "The tail hangs downward from the rear of the body."
+    },
+    {
+     "id": "g77",
+     "text": "The body's sides are uncovered by the tail."
+    },
+    {
+     "id": "g78",
+     "text": "The legs are uncovered by the tail."
+    },
+    {
+     "id": "g79",
+     "text": "The tail is about as long as the legs are tall."
+    },
+    {
+     "id": "g80",
+     "text": "The tail is narrower than the body is tall."
+    },
+    {
+     "id": "g81",
+     "text": "There is tail hair."
+    },
+    {
+     "id": "g82",
+     "text": "There is a rump."
+    },
+    {
+     "id": "g83",
+     "text": "The tail hair lies behind the rump."
+    },
+    {
+     "id": "g84",
+     "text": "The head is narrower from side to side than it is long."
+    },
+    {
+     "id": "g85",
+     "text": "The eyes are separated from each other by less than half the length of the head."
+    },
+    {
+     "id": "g86",
+     "text": "The head is wedge-shaped."
+    },
+    {
+     "id": "g87",
+     "text": "The muzzle is about half as wide as the forehead."
+    },
+    {
+     "id": "g88",
+     "text": "The muzzle is wider than each leg is thick."
+    },
+    {
+     "id": "g89",
+     "text": "The muzzle is about one third as wide as it is long."
+    }
+   ]
+  },
+  {
+   "slug": "a-viking-ship",
+   "name": "a viking ship",
+   "group": "Uncommon",
+   "run": "text-2026-11-02-2237-check-looks-measure-realchanged-many",
+   "properties": [
+    {
+     "id": "g01",
+     "text": "There is a hull."
+    },
+    {
+     "id": "g02",
+     "text": "The hull is about five times as long as it is wide."
+    },
+    {
+     "id": "g03",
+     "text": "There is a bow."
+    },
+    {
+     "id": "g04",
+     "text": "There is a stern."
+    },
+    {
+     "id": "g05",
+     "text": "There are prows."
+    },
+    {
+     "id": "g06",
+     "text": "The bow and stern rise upward in prows."
+    },
+    {
+     "id": "g07",
+     "text": "The prows are tall."
+    },
+    {
+     "id": "g08",
+     "text": "The prows are curved."
+    },
+    {
+     "id": "g09",
+     "text": "The hull is symmetric fore and aft."
+    },
+    {
+     "id": "g10",
+     "text": "There is a mast."
+    },
+    {
+     "id": "g11",
+     "text": "There is a single mast."
+    },
+    {
+     "id": "g12",
+     "text": "The mast is at the center of the hull."
+    },
+    {
+     "id": "g13",
+     "text": "There is a sail."
+    },
+    {
+     "id": "g14",
+     "text": "There is one sail."
+    },
+    {
+     "id": "g15",
+     "text": "The sail is square."
+    },
+    {
+     "id": "g16",
+     "text": "There are hull planks."
+    },
+    {
+     "id": "g17",
+     "text": "The hull planks overlap in horizontal strakes."
+    },
+    {
+     "id": "g18",
+     "text": "The hull is brown."
+    },
+    {
+     "id": "g19",
+     "text": "The hull is made of wood."
+    },
+    {
+     "id": "g20",
+     "text": "There are round shields."
+    },
+    {
+     "id": "g21",
+     "text": "The shields are round."
+    },
+    {
+     "id": "g22",
+     "text": "There is a row of shields along each side of the hull top edge."
+    },
+    {
+     "id": "g23",
+     "text": "There are oars."
+    },
+    {
+     "id": "g24",
+     "text": "The oars are arranged in a row on each side of the hull."
+    },
+    {
+     "id": "g25",
+     "text": "The oars project from each side of the hull."
+    },
+    {
+     "id": "g26",
+     "text": "There is a keel."
+    },
+    {
+     "id": "g27",
+     "text": "The hull has a curved bottom."
+    },
+    {
+     "id": "g28",
+     "text": "The keel is central on the bottom of the hull."
+    },
+    {
+     "id": "g29",
+     "text": "The hull narrows to a point at each end."
+    },
+    {
+     "id": "g30",
+     "text": "There is a bow post."
+    },
+    {
+     "id": "g31",
+     "text": "There is a carved animal head."
+    },
+    {
+     "id": "g32",
+     "text": "The bow post ends in a carved animal head."
+    },
+    {
+     "id": "g33",
+     "text": "There is a steering oar."
+    },
+    {
+     "id": "g34",
+     "text": "The steering oar is on the right side near the stern."
+    },
+    {
+     "id": "g35",
+     "text": "Each oar is about one-fifth as long as the hull."
+    },
+    {
+     "id": "g36",
+     "text": "The mast is about as tall as half the hull length."
+    },
+    {
+     "id": "g37",
+     "text": "The sail spans most of the mast's height."
+    },
+    {
+     "id": "g38",
+     "text": "The sail is about as wide as one-third of the hull length."
+    },
+    {
+     "id": "g39",
+     "text": "The oars extend outward from the hull by less than the hull's width."
+    },
+    {
+     "id": "g40",
+     "text": "The hull depth is about one-fifth of the hull length."
+    },
+    {
+     "id": "g41",
+     "text": "The hull length is greater than its depth."
+    },
+    {
+     "id": "g42",
+     "text": "The carved animal head is less than one-tenth as long as the hull."
+    },
+    {
+     "id": "g43",
+     "text": "The mast is taller than the hull is deep."
+    },
+    {
+     "id": "g44",
+     "text": "The carved animal head is narrower than the hull."
+    },
+    {
+     "id": "g45",
+     "text": "Each shield is less than the hull depth in diameter."
+    },
+    {
+     "id": "g46",
+     "text": "The shields are less than one-tenth as wide as the hull length."
+    },
+    {
+     "id": "g47",
+     "text": "The sail is visible above the shields."
+    },
+    {
+     "id": "g48",
+     "text": "The mast is visible above the shields."
+    },
+    {
+     "id": "g49",
+     "text": "The shields rise above the hull top edge by less than the hull depth."
+    },
+    {
+     "id": "g50",
+     "text": "The prows are lower than the top of the mast."
+    },
+    {
+     "id": "g51",
+     "text": "Each prow is less than half as tall as the mast."
+    },
+    {
+     "id": "g52",
+     "text": "The bow prow and stern prow are separated from each other by the full hull length."
+    },
+    {
+     "id": "g53",
+     "text": "There is a deck."
+    },
+    {
+     "id": "g54",
+     "text": "The space above the deck between the prows is open."
+    },
+    {
+     "id": "g55",
+     "text": "The prow tips curl back toward the hull center."
+    },
+    {
+     "id": "g56",
+     "text": "The prow tips curl back toward the hull center by less than one-tenth of the hull length."
+    },
+    {
+     "id": "g57",
+     "text": "The carved animal head is at the top of the bow post."
+    },
+    {
+     "id": "g58",
+     "text": "The bow post is at the front end of the hull."
+    },
+    {
+     "id": "g59",
+     "text": "The prow height above the hull top edge is less than the hull depth times three."
+    }
+   ]
+  },
+  {
+   "slug": "a-snowman-holding-a-broom",
+   "name": "a snowman holding a broom",
+   "group": "Uncommon",
+   "run": "text-2026-11-02-2237-check-looks-measure-realchanged-many",
+   "properties": [
+    {
+     "id": "g01",
+     "text": "There is a broom."
+    },
+    {
+     "id": "g02",
+     "text": "The broom is being held."
+    },
+    {
+     "id": "g03",
+     "text": "There is a body."
+    },
+    {
+     "id": "g04",
+     "text": "The body is made of snow."
+    },
+    {
+     "id": "g05",
+     "text": "There are balls."
+    },
+    {
+     "id": "g06",
+     "text": "The body consists of three balls."
+    },
+    {
+     "id": "g07",
+     "text": "The balls of the body are stacked."
+    },
+    {
+     "id": "g08",
+     "text": "The balls are stacked vertically."
+    },
+    {
+     "id": "g09",
+     "text": "There is a bottom ball."
+    },
+    {
+     "id": "g10",
+     "text": "There is a middle ball."
+    },
+    {
+     "id": "g11",
+     "text": "The bottom ball is wider than the middle ball."
+    },
+    {
+     "id": "g12",
+     "text": "There is a top ball."
+    },
+    {
+     "id": "g13",
+     "text": "The middle ball is wider than the top ball."
+    },
+    {
+     "id": "g14",
+     "text": "The body is white."
+    },
+    {
+     "id": "g15",
+     "text": "There are arms."
+    },
+    {
+     "id": "g16",
+     "text": "The arms are sticks."
+    },
+    {
+     "id": "g17",
+     "text": "There are stick arms."
+    },
+    {
+     "id": "g18",
+     "text": "The stick arms protrude from the sides of the middle ball."
+    },
+    {
+     "id": "g19",
+     "text": "There is a carrot nose."
+    },
+    {
+     "id": "g20",
+     "text": "The carrot nose is on the top ball."
+    },
+    {
+     "id": "g21",
+     "text": "There are eyes."
+    },
+    {
+     "id": "g22",
+     "text": "The eyes are made of coal."
+    },
+    {
+     "id": "g23",
+     "text": "The eyes are on the top ball."
+    },
+    {
+     "id": "g24",
+     "text": "The total height is about three times the width of the bottom ball."
+    },
+    {
+     "id": "g25",
+     "text": "There are no legs."
+    },
+    {
+     "id": "g26",
+     "text": "The carrot nose is shorter than the diameter of the top ball."
+    },
+    {
+     "id": "g27",
+     "text": "There are two stick arms."
+    },
+    {
+     "id": "g28",
+     "text": "The stick arms protrude from opposite sides of the middle ball."
+    },
+    {
+     "id": "g29",
+     "text": "The carrot nose is shorter than the total height of the body."
+    },
+    {
+     "id": "g30",
+     "text": "The broom is held by one of the stick arms."
+    },
+    {
+     "id": "g31",
+     "text": "Each stick arm is shorter than the total height of the body."
+    },
+    {
+     "id": "g32",
+     "text": "The broom is positioned next to the body."
+    },
+    {
+     "id": "g33",
+     "text": "The broom is within about one bottom-ball width of the body."
+    },
+    {
+     "id": "g34",
+     "text": "The carrot nose is on the front of the top ball."
+    },
+    {
+     "id": "g35",
+     "text": "The carrot nose points horizontally forward."
+    },
+    {
+     "id": "g36",
+     "text": "The carrot nose is below the eyes."
+    },
+    {
+     "id": "g37",
+     "text": "The broom is about as tall as the body."
+    },
+    {
+     "id": "g38",
+     "text": "The broom is shorter than twice the total height of the body."
+    },
+    {
+     "id": "g39",
+     "text": "The broom is longer than the diameter of the top ball."
+    },
+    {
+     "id": "g40",
+     "text": "There is a broom handle."
+    },
+    {
+     "id": "g41",
+     "text": "There are bristles."
+    },
+    {
+     "id": "g42",
+     "text": "The bristles are at the lower end of the broom handle."
+    },
+    {
+     "id": "g43",
+     "text": "The bristles rest near the ground."
+    },
+    {
+     "id": "g44",
+     "text": "The bristles are beside the bottom ball."
+    },
+    {
+     "id": "g45",
+     "text": "The broom handle is longer than a stick arm."
+    },
+    {
+     "id": "g46",
+     "text": "The broom handle is less than twice the length of a stick arm."
+    }
+   ]
+  },
+  {
+   "slug": "a-chinese-dragon",
+   "name": "a chinese dragon",
+   "group": "Uncommon",
+   "run": "text-2026-11-02-2247-check-looks-measure-realchanged-many",
+   "properties": [
+    {
+     "id": "g01",
+     "text": "There is a body."
+    },
+    {
+     "id": "g02",
+     "text": "The body is serpentine."
+    },
+    {
+     "id": "g03",
+     "text": "The body is elongated."
+    },
+    {
+     "id": "g04",
+     "text": "The body is at least ten times as long as it is wide."
+    },
+    {
+     "id": "g05",
+     "text": "There are legs."
+    },
+    {
+     "id": "g06",
+     "text": "There are four legs."
+    },
+    {
+     "id": "g07",
+     "text": "There are feet."
+    },
+    {
+     "id": "g08",
+     "text": "There are claws."
+    },
+    {
+     "id": "g09",
+     "text": "Each foot ends in claws."
+    },
+    {
+     "id": "g10",
+     "text": "There is a head."
+    },
+    {
+     "id": "g11",
+     "text": "There are antlers."
+    },
+    {
+     "id": "g12",
+     "text": "The antlers are on the head."
+    },
+    {
+     "id": "g13",
+     "text": "There are whiskers."
+    },
+    {
+     "id": "g14",
+     "text": "There is a snout."
+    },
+    {
+     "id": "g15",
+     "text": "The whiskers extend from the snout."
+    },
+    {
+     "id": "g16",
+     "text": "There is a mane."
+    },
+    {
+     "id": "g17",
+     "text": "There is a neck."
+    },
+    {
+     "id": "g18",
+     "text": "The mane is along the neck."
+    },
+    {
+     "id": "g19",
+     "text": "There are spines."
+    },
+    {
+     "id": "g20",
+     "text": "The spines are arranged in a row along the back."
+    },
+    {
+     "id": "g21",
+     "text": "There are scales."
+    },
+    {
+     "id": "g22",
+     "text": "The body is covered in scales."
+    },
+    {
+     "id": "g23",
+     "text": "There is a mouth."
+    },
+    {
+     "id": "g24",
+     "text": "The head has a mouth."
+    },
+    {
+     "id": "g25",
+     "text": "The mouth is open."
+    },
+    {
+     "id": "g26",
+     "text": "There are teeth."
+    },
+    {
+     "id": "g27",
+     "text": "The open mouth shows teeth."
+    },
+    {
+     "id": "g28",
+     "text": "The legs are spaced at the front and rear of the body."
+    },
+    {
+     "id": "g29",
+     "text": "There is a long legless stretch of body between the front and rear legs."
+    },
+    {
+     "id": "g30",
+     "text": "Each leg is shorter than one tenth of the body length."
+    },
+    {
+     "id": "g31",
+     "text": "The legs are about as long as the body is wide."
+    },
+    {
+     "id": "g32",
+     "text": "The head is less than twice as wide as the body."
+    },
+    {
+     "id": "g33",
+     "text": "The head is less than one tenth of the total body length."
+    },
+    {
+     "id": "g34",
+     "text": "The body is held low, close to the level of the feet."
+    },
+    {
+     "id": "g35",
+     "text": "The antlers are shorter than the head is long."
+    },
+    {
+     "id": "g36",
+     "text": "Each spine is shorter than the body is wide."
+    },
+    {
+     "id": "g37",
+     "text": "The body is the largest part of the overall silhouette."
+    }
+   ]
+  },
+  {
+   "slug": "a-medieval-throne",
+   "name": "a medieval throne",
+   "group": "Uncommon",
+   "run": "text-2026-11-02-2247-check-looks-measure-realchanged-many",
+   "properties": [
+    {
+     "id": "g01",
+     "text": "The overall design is in a medieval style."
+    },
+    {
+     "id": "g02",
+     "text": "There is a seat."
+    },
+    {
+     "id": "g03",
+     "text": "There is a backrest."
+    },
+    {
+     "id": "g04",
+     "text": "The backrest rises above the seat."
+    },
+    {
+     "id": "g05",
+     "text": "The backrest is at least as tall as the seat is high above the floor."
+    },
+    {
+     "id": "g06",
+     "text": "The seat is about half a meter above the floor."
+    },
+    {
+     "id": "g07",
+     "text": "There are legs."
+    },
+    {
+     "id": "g08",
+     "text": "The legs are shorter than the backrest."
+    },
+    {
+     "id": "g09",
+     "text": "There are armrests."
+    },
+    {
+     "id": "g10",
+     "text": "The armrests are on both sides of the seat."
+    },
+    {
+     "id": "g11",
+     "text": "The overall height is about one and a half to two times the width."
+    },
+    {
+     "id": "g12",
+     "text": "The surfaces are carved wood."
+    },
+    {
+     "id": "g13",
+     "text": "The seat is a solid surface."
+    },
+    {
+     "id": "g14",
+     "text": "The seat has no cutout."
+    },
+    {
+     "id": "g15",
+     "text": "The backrest is about as wide as the seat."
+    },
+    {
+     "id": "g16",
+     "text": "The backrest is a solid panel."
+    },
+    {
+     "id": "g17",
+     "text": "The seat depth is about equal to the seat width."
+    },
+    {
+     "id": "g18",
+     "text": "The seat depth is less than the backrest height."
+    },
+    {
+     "id": "g19",
+     "text": "There is a platform."
+    },
+    {
+     "id": "g20",
+     "text": "The platform is raised."
+    },
+    {
+     "id": "g21",
+     "text": "The platform is under the legs."
+    },
+    {
+     "id": "g22",
+     "text": "The armrests are about half as tall above the seat as the backrest."
+    },
+    {
+     "id": "g23",
+     "text": "The armrests are about as long as the seat depth."
+    },
+    {
+     "id": "g24",
+     "text": "The sides of the seat above the armrests are open."
+    },
+    {
+     "id": "g25",
+     "text": "There is no railing around the platform."
+    },
+    {
+     "id": "g26",
+     "text": "The front of the seat is unobstructed."
+    },
+    {
+     "id": "g27",
+     "text": "There is a crest."
+    },
+    {
+     "id": "g28",
+     "text": "The crest is on the top of the backrest."
+    },
+    {
+     "id": "g29",
+     "text": "The crest is carved."
+    },
+    {
+     "id": "g30",
+     "text": "The platform has a flat top surface."
+    },
+    {
+     "id": "g31",
+     "text": "The platform is wider than the seat."
+    },
+    {
+     "id": "g32",
+     "text": "The platform is less tall than the seat is high above the floor."
+    },
+    {
+     "id": "g33",
+     "text": "The platform has a rectangular footprint."
+    },
+    {
+     "id": "g34",
+     "text": "There are steps."
+    },
+    {
+     "id": "g35",
+     "text": "The steps are at the front of the platform."
+    },
+    {
+     "id": "g36",
+     "text": "There are four legs."
+    },
+    {
+     "id": "g37",
+     "text": "The legs are at the corners of the seat."
+    },
+    {
+     "id": "g38",
+     "text": "The platform depth is less than twice its width."
+    },
+    {
+     "id": "g39",
+     "text": "The platform depth is less than three times the seat depth."
+    },
+    {
+     "id": "g40",
+     "text": "The platform is at least one and a half times as wide as the seat."
+    }
+   ]
+  }
+ ]
+}

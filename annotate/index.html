@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Property Annotation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
+<style>
+  :root {
+    --bg: #f6f5f1; --surface: #ffffff; --sunk: #efede7; --fg: #1d2026; --muted: #5d6270; --line: #dad7ce;
+    --accent: #2d5b88; --accent-fg: #ffffff; --ok: #2c7a4d; --warn: #9a5a00; --no: #ad3737; --done-soft: #e9f3ec;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #15171b; --surface: #1d2026; --sunk: #191b20; --fg: #e7e5e0; --muted: #a0a4ae; --line: #343841;
+    --accent: #8db5dd; --accent-fg: #10161d; --ok: #6cbf8c; --warn: #e2a95c; --no: #e47c7c; --done-soft: #1f2d24; color-scheme: dark; } }
+  :root[data-theme="dark"] {
+    --bg: #15171b; --surface: #1d2026; --sunk: #191b20; --fg: #e7e5e0; --muted: #a0a4ae; --line: #343841;
+    --accent: #8db5dd; --accent-fg: #10161d; --ok: #6cbf8c; --warn: #e2a95c; --no: #e47c7c; --done-soft: #1f2d24; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 var(--sans); padding: env(safe-area-inset-top, 0px) 16px env(safe-area-inset-bottom, 0px); }
+  main { max-width: 1040px; margin: 0 auto; padding-block: 24px 64px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; margin: 0; text-wrap: balance; }
+  h1 { font-size: 1.9rem; } h2 { font-size: 1.45rem; } h3 { font-size: 1.1rem; }
+  p { margin: 0; max-width: 72ch; }
+  .muted { color: var(--muted); } .small { font-size: 0.85rem; }
+  .stack { display: flex; flex-direction: column; gap: 16px; }
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .spread { justify-content: space-between; }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+  ol.steps { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 6px; max-width: 72ch; }
+  input[type=text], select { font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
+  input[type=text] { width: 100%; }
+  input:focus, select:focus, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  button { font: inherit; cursor: pointer; border-radius: 6px; padding: 7px 14px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); }
+  button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); font-weight: 600; }
+  button.link { border: 0; background: none; padding: 0; color: var(--accent); text-decoration: underline; }
+  header.bar { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+  .save { font-size: 0.85rem; color: var(--muted); } .save.ok { color: var(--ok); } .save.warn { color: var(--warn); }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  @media (max-width: 640px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+  .group { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-top: 6px; }
+  .card { text-align: left; display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
+  .card:hover { border-color: var(--accent); }
+  .card .name { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
+  .progress { height: 4px; border-radius: 2px; background: var(--sunk); overflow: hidden; }
+  .progress > span { display: block; height: 100%; background: var(--ok); }
+  .tools { display: flex; gap: 10px 16px; flex-wrap: wrap; align-items: center; position: sticky; top: 0; z-index: 2; background: var(--bg); padding-block: 10px; }
+  label.check { display: inline-flex; gap: 6px; align-items: center; }
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; min-width: 640px; }
+  th { text-align: left; font-size: 0.78rem; color: var(--muted); font-weight: 600; padding: 8px 10px; border-bottom: 1px solid var(--line); background: var(--sunk); }
+  td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  tr.answered td.prop { color: var(--fg); }
+  tr.answered { background: var(--done-soft); }
+  td.id { font-family: ui-monospace, Menlo, monospace; font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+  td.note { width: 30%; }
+  details summary { cursor: pointer; color: var(--accent); }
+  footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); }
+  .error { color: var(--no); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main id="app">Loading…</main>
+<script>
+// The Apps Script web app that saves to the Google Sheet (experiments/cegar/exercise/apps_script.gs, shared with the
+// exercise). Each annotator's object is one row there: object "Annotation: <name>", status "<n> of <total> annotated".
+let ENDPOINT = "https://script.google.com/macros/s/AKfycbz9vFTyjYZDZEp82h8WxGvcFIycT5fYLrNCXyt1eqw-00YVSjdWVzS7hteFPoJz-1CQeg/exec";
+const STORE = "property-annotation-v1";
+const NEC = [["", "—"], ["Y", "Yes"], ["N", "No"], ["F", "Unsure"]];
+const NUM = [["", "—"], ["none", "No number"], ["ok", "Holds"], ["off", "Off"], ["F", "Unsure"]];
+const app = document.getElementById("app");
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const now = () => new Date().toISOString();
+const uid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2));
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+const noun = (name) => name.replace(/^(a|an|the) /i, "");
+let DATA = null;
+
+function fresh() { return {session: uid(), participant: "", started: now(), objects: {}, pending: {}}; }
+let state = (() => { try { const s = JSON.parse(localStorage.getItem(STORE)); if (s && s.session) return {pending: {}, ...s}; } catch (e) {} return fresh(); })();
+let view = {screen: state.participant ? "home" : "welcome", slug: null, open: false, onlyLeft: false, confirm: null, error: ""};
+function persist() { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {} }
+const obj = (slug) => DATA.objects.find((o) => o.slug === slug);
+function ann(slug) { return state.objects[slug] || (state.objects[slug] = {answers: {}, comment: "", started: null, updated: null, rev: 0}); }
+const answered = (a) => a && a.nec && a.num;
+function done(slug) { const a = ann(slug); return obj(slug).properties.filter((p) => answered(a.answers[p.id])).length; }
+
+// ---- saving: each object sent whenever it changes, a moment after the last change ----
+const timers = {};
+function changed(slug) {
+  const a = ann(slug);
+  a.updated = now(); a.started = a.started || a.updated; a.rev += 1;
+  state.pending[slug] = a.rev;
+  persist();
+  showSave();
+  clearTimeout(timers[slug]);
+  timers[slug] = setTimeout(flush, 1500);
+}
+function payload(slug) {
+  const o = obj(slug), a = ann(slug), n = done(slug);
+  return {version: 1, kind: "annotation", session: state.session, participant: state.participant, category: `Annotation: ${o.name}`, slug,
+          run: o.run, status: `${n} of ${o.properties.length} annotated`, started: a.started, updated: a.updated, comment: a.comment,
+          properties: o.properties.filter((p) => a.answers[p.id]).map((p) => {
+            const x = a.answers[p.id];
+            return `${p.id} | necessary ${x.nec || "—"} | numbers ${x.num || "—"} | ${p.text}${x.note ? ` | note: ${x.note}` : ""}`;
+          }),
+          rounds: [], annotations: a.answers};
+}
+let syncing = false, failed = false, retry = null;
+async function flush() {
+  if (!ENDPOINT || syncing) return showSave();
+  syncing = true; showSave();
+  for (const slug of Object.keys(state.pending)) {
+    const rev = state.pending[slug];
+    const request = {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(payload(slug))};
+    try {
+      let answer;
+      try { answer = await (await fetch(ENDPOINT, request)).json(); }
+      catch (e) { await fetch(ENDPOINT, {...request, mode: "no-cors"}); answer = {ok: true}; }  // an unreadable reply still saved the row
+      if (!answer.ok) throw new Error(answer.error || "not saved");
+      if (state.pending[slug] === rev) delete state.pending[slug];
+      persist(); failed = false;
+    } catch (e) { failed = true; break; }
+  }
+  syncing = false; showSave();
+  clearTimeout(retry);
+  if (Object.keys(state.pending).length) retry = setTimeout(flush, failed ? 15000 : 0);
+}
+window.addEventListener("online", flush);
+function showSave() {
+  const el = document.getElementById("save");
+  if (!el) return;
+  const [cls, text] = !ENDPOINT ? ["warn", "Preview: answers are kept in this browser only"] : syncing ? ["", "Saving…"]
+    : failed ? ["warn", "Not saved yet: can't reach the server, retrying"] : Object.keys(state.pending).length ? ["", "Saving…"] : ["ok", "All answers saved"];
+  el.className = `save ${cls}`; el.textContent = text;
+}
+
+// ---- rendering ----
+const HOW = `<ol class="steps">
+  <li><b>Necessary?</b> Does every typical example of the object have this property? Answer <i>Yes</i>, <i>No</i>, or <i>Unsure</i>.
+    Think of the usual forms of the object as it is commonly seen or shown, not rare variants, damaged ones, or toys.</li>
+  <li><b>Numbers.</b> If the property states a number, a count, a ratio, or a size compared with another part ("about a quarter as long as the body", "shorter than the head"),
+    does it hold for a typical example? Answer <i>Holds</i>, <i>Off</i>, or <i>Unsure</i>. If it states none, choose <i>No number</i>.</li>
+  <li><b>Note</b> (optional): why, or what the right value would be.</li>
+</ol>
+<p class="muted small">The properties were found by an automated search for each object. Judge each one on its own. Do as many objects as you like; each is saved as you go.</p>`;
+
+function bar() {
+  const total = DATA.objects.reduce((t, o) => t + o.properties.length, 0);
+  const n = DATA.objects.reduce((t, o) => t + done(o.slug), 0);
+  return `<header class="bar"><div class="row"><button class="link" data-act="home">All objects</button>
+    <span class="muted small" id="total">${n} of ${total} properties annotated · ${esc(state.participant)}</span></div><span id="save" class="save"></span></header>`;
+}
+function footer() {
+  return `<footer><button class="link" data-act="download">Download my annotations</button>
+    ${view.confirm === "reset" ? `<span>Start over as someone else? This clears the answers kept in this browser (those already saved stay saved).
+      <button class="link" data-act="reset-yes">Yes, start over</button> · <button class="link" data-act="cancel">Cancel</button></span>`
+      : `<button class="link" data-act="reset">Not ${esc(state.participant || "you")}? Start over</button>`}</footer>`;
+}
+function renderWelcome() {
+  const total = DATA.objects.reduce((t, o) => t + o.properties.length, 0);
+  app.innerHTML = `<div class="stack">
+    <h1>Property annotation</h1>
+    <p>For ten objects, from a corgi to a medieval throne, an automated search wrote down properties of how each looks: ${total} in all.
+      You'll judge each property: is it true of every typical example, and if it states a number, does the number hold?</p>
+    <div class="panel stack"><h3>For each property</h3>${HOW}</div>
+    <form class="panel stack" data-form="welcome">
+      <label for="participant"><b>Your name or initials</b></label>
+      <input id="participant" type="text" maxlength="80" autocomplete="name" required value="${esc(state.participant)}">
+      ${view.error ? `<div class="error">${esc(view.error)}</div>` : ""}
+      <div><button class="primary" type="submit">Start</button></div>
+    </form></div>`;
+}
+function renderHome() {
+  const groups = [...new Set(DATA.objects.map((o) => o.group))];
+  app.innerHTML = `${bar()}<div class="stack"><h2>Choose an object</h2>
+    ${groups.map((g) => `<div class="group">${esc(g)}</div><div class="grid">${DATA.objects.filter((o) => o.group === g).map((o) => {
+      const n = done(o.slug), t = o.properties.length;
+      return `<button class="card" data-act="open" data-slug="${o.slug}"><span class="name">${esc(cap(o.name))}</span>
+        <span class="muted small">${n ? `${n} of ${t} annotated` : `${t} properties`}</span>
+        <span class="progress"><span style="width:${(100 * n) / t}%"></span></span></button>`;
+    }).join("")}</div>`).join("")}
+    <details><summary>How to judge a property</summary><div class="stack" style="margin-top:10px">${HOW}</div></details>
+  </div>${footer()}`;
+  showSave();
+}
+function select(slug, id, field, value, choices) {
+  return `<select data-slug="${slug}" data-id="${id}" data-field="${field}" aria-label="${field === "nec" ? "Necessary" : "Numbers"} for ${id}">${choices.map(([v, label]) =>
+    `<option value="${v}"${v === (value || "") ? " selected" : ""}>${label}</option>`).join("")}</select>`;
+}
+function renderObject() {
+  const o = obj(view.slug), a = ann(o.slug), n = done(o.slug);
+  const rows = o.properties.filter((p) => !view.onlyLeft || !answered(a.answers[p.id]));
+  app.innerHTML = `${bar()}<div class="stack">
+    <div class="row spread"><h2>${esc(cap(o.name))}</h2><span class="muted small">${n} of ${o.properties.length} annotated</span></div>
+    <div class="tools"><label class="check"><input type="checkbox" data-act="only-left"${view.onlyLeft ? " checked" : ""}> Unanswered only</label>
+      <details${view.open ? " open" : ""} data-act="how"><summary>How to judge a property</summary><div class="stack" style="margin-top:10px">${HOW}</div></details></div>
+    <div class="tablewrap"><table><tr><th>ID</th><th>Property of ${esc(o.name)}</th><th>Necessary?</th><th>Numbers</th><th>Note (optional)</th></tr>
+      ${rows.map((p) => { const x = a.answers[p.id] || {};
+        return `<tr class="${answered(x) ? "answered" : ""}"><td class="id">${p.id}</td><td class="prop">${esc(p.text)}</td>
+          <td>${select(o.slug, p.id, "nec", x.nec, NEC)}</td><td>${select(o.slug, p.id, "num", x.num, NUM)}</td>
+          <td class="note"><input type="text" maxlength="300" data-slug="${o.slug}" data-id="${p.id}" data-field="note" value="${esc(x.note)}"></td></tr>`;
+      }).join("") || `<tr><td colspan="5" class="muted">Every property of ${esc(o.name)} is answered.</td></tr>`}</table></div>
+    <div class="panel stack"><label for="comment"><b>Anything else about ${esc(o.name)}?</b> <span class="muted small">(optional)</span></label>
+      <input id="comment" type="text" maxlength="1000" data-slug="${o.slug}" data-field="comment" value="${esc(a.comment)}">
+      <div class="row"><button class="primary" data-act="home">Back to all objects</button></div></div>
+  </div>${footer()}`;
+  showSave();
+}
+function render() { if (view.screen === "welcome") renderWelcome(); else if (view.screen === "object") renderObject(); else renderHome(); }
+function go(screen, slug = null) { view = {...view, screen, slug, confirm: null, error: ""}; render(); window.scrollTo(0, 0); }
+
+// ---- actions ----
+app.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const value = document.getElementById("participant").value.trim();
+  if (!value) { view.error = "Please write your name or initials."; return render(); }
+  state.participant = value; persist();
+  for (const slug of Object.keys(state.objects)) changed(slug);
+  go("home");
+});
+app.addEventListener("change", (e) => {
+  const t = e.target;
+  if (t.dataset.act === "only-left") { view.onlyLeft = t.checked; return render(); }
+  if (!t.dataset.field) return;
+  const a = ann(t.dataset.slug);
+  if (t.dataset.field === "comment") a.comment = t.value.trim();
+  else {
+    const x = a.answers[t.dataset.id] || (a.answers[t.dataset.id] = {});
+    x[t.dataset.field] = t.dataset.field === "note" ? t.value.trim() : t.value;
+    if (!x.nec && !x.num && !x.note) delete a.answers[t.dataset.id];
+    const row = t.closest("tr");
+    if (row) row.className = answered(a.answers[t.dataset.id]) ? "answered" : "";
+  }
+  changed(t.dataset.slug);
+  const head = document.querySelector(".row.spread .muted");
+  if (head) head.textContent = `${done(t.dataset.slug)} of ${obj(t.dataset.slug).properties.length} annotated`;
+  const total = document.getElementById("total");
+  if (total) total.textContent = `${DATA.objects.reduce((n, o) => n + done(o.slug), 0)} of ${DATA.objects.reduce((n, o) => n + o.properties.length, 0)} properties annotated · ${state.participant}`;
+});
+app.addEventListener("toggle", (e) => { if (e.target.dataset && e.target.dataset.act === "how") view.open = e.target.open; }, true);
+app.addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-act]");
+  if (!b) return;
+  const act = b.dataset.act;
+  if (act === "home") go("home");
+  else if (act === "open") go("object", b.dataset.slug);
+  else if (act === "reset") { view.confirm = "reset"; render(); }
+  else if (act === "cancel") { view.confirm = null; render(); }
+  else if (act === "reset-yes") {
+    if (ENDPOINT && Object.keys(state.pending).length) { view.confirm = null; render(); document.getElementById("save").textContent = "Some answers are still being saved; try again in a moment."; return flush(); }
+    state = fresh(); persist(); go("welcome");
+  } else if (act === "download") {
+    const blob = new Blob([JSON.stringify({session: state.session, participant: state.participant,
+      objects: DATA.objects.filter((o) => state.objects[o.slug]).map((o) => payload(o.slug))}, null, 1)], {type: "application/json"});
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `property-annotation-${(state.participant || "answers").replace(/\W+/g, "-")}.json`;
+    document.body.appendChild(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+  }
+});
+
+(async () => {
+  try {
+    DATA = await (await fetch("properties.json", {cache: "no-store"})).json();
+    render(); flush();
+  } catch (e) { app.innerHTML = `<p class="error">Could not load the properties: ${esc(e)}</p>`; }
+})();
+</script>
+</body>
+</html>
