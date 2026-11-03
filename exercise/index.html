@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Counterexample Exercise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<style>
+  :root {
+    --bg: #f6f5f1; --surface: #ffffff; --sunk: #efede7; --fg: #1d2026; --muted: #5d6270; --line: #dad7ce;
+    --accent: #2d5b88; --accent-fg: #ffffff; --accent-soft: #e4ecf4; --ok: #2c7a4d; --warn: #9a5a00; --danger: #ad3737;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15171b; --surface: #1d2026; --sunk: #191b20; --fg: #e7e5e0; --muted: #a0a4ae; --line: #343841;
+      --accent: #8db5dd; --accent-fg: #10161d; --accent-soft: #22303e; --ok: #6cbf8c; --warn: #e2a95c; --danger: #e47c7c;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15171b; --surface: #1d2026; --sunk: #191b20; --fg: #e7e5e0; --muted: #a0a4ae; --line: #343841;
+    --accent: #8db5dd; --accent-fg: #10161d; --accent-soft: #22303e; --ok: #6cbf8c; --warn: #e2a95c; --danger: #e47c7c;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 var(--sans); padding: env(safe-area-inset-top, 0px) 16px env(safe-area-inset-bottom, 0px); }
+  main { max-width: 860px; margin: 0 auto; padding-block: 28px 64px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; text-wrap: balance; margin: 0; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.15rem; }
+  p { margin: 0; max-width: 68ch; }
+  a { color: var(--accent); }
+  .muted { color: var(--muted); }
+  .small { font-size: 0.875rem; }
+  .stack { display: flex; flex-direction: column; gap: 16px; }
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .spread { justify-content: space-between; }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+  .label { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  ol.steps { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 8px; max-width: 68ch; }
+  .example { background: var(--sunk); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem; }
+  .example b { font-weight: 600; }
+  input[type=text], textarea, select { font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; width: 100%; }
+  textarea { resize: vertical; min-height: 64px; }
+  input:focus, textarea:focus, select:focus, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  button { font: inherit; cursor: pointer; border-radius: 6px; padding: 8px 14px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); }
+  button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); font-weight: 600; }
+  button.link { border: 0; background: none; padding: 0; color: var(--accent); text-decoration: underline; }
+  button:disabled { opacity: 0.5; cursor: default; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .hint { font-size: 0.85rem; color: var(--muted); max-width: 68ch; }
+  .error { color: var(--danger); font-size: 0.9rem; }
+  header.bar { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding-bottom: 16px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+  .save { font-size: 0.85rem; color: var(--muted); }
+  .save.ok { color: var(--ok); }
+  .save.warn { color: var(--warn); }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 620px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+  .card { text-align: left; display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
+  .card:hover { border-color: var(--accent); }
+  .card .name { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; }
+  .badge { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--sunk); color: var(--muted); }
+  .badge.active { background: var(--accent-soft); color: var(--accent); }
+  .badge.done { background: color-mix(in srgb, var(--ok) 16%, transparent); color: var(--ok); }
+  .layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 20px; align-items: start; }
+  @media (max-width: 760px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+  ol.props { margin: 0; padding-left: 1.6em; display: flex; flex-direction: column; gap: 6px; font-variant-numeric: tabular-nums; }
+  ol.props li::marker { color: var(--muted); }
+  .ce { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: start; padding: 12px; border-radius: 8px; background: var(--sunk); }
+  .ce .desc, .ce .tag { grid-column: 1 / 3; }
+  .tag { font-size: 0.75rem; color: var(--warn); }
+  .rules { display: flex; flex-direction: column; gap: 4px; }
+  .rules label { display: flex; gap: 8px; align-items: baseline; }
+  .history { display: flex; flex-direction: column; gap: 10px; }
+  .history .round { border-left: 3px solid var(--line); padding-left: 12px; font-size: 0.92rem; }
+  .history .round .arrow { color: var(--muted); }
+  .confirm { border: 1px solid var(--warn); }
+  footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); }
+  details summary { cursor: pointer; color: var(--accent); }
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+// The Apps Script web app that saves submissions to a Google Sheet (apps_script.gs). Empty: answers stay in this browser.
+let ENDPOINT = "https://script.google.com/macros/s/AKfycbz9vFTyjYZDZEp82h8WxGvcFIycT5fYLrNCXyt1eqw-00YVSjdWVzS7hteFPoJz-1CQeg/exec";
+const VERSION = 1;
+const CATEGORIES = [
+  ["unicorn", "a unicorn"], ["japanese-torii-gate", "a Japanese torii gate"], ["corgi", "a corgi"],
+  ["mountain-bike", "a mountain bike"], ["medieval-throne", "a medieval throne"], ["giraffe", "a giraffe"],
+  ["viking-ship", "a Viking ship"], ["toucan", "a toucan"], ["knight-in-armor", "a knight in armor"], ["prop-plane", "a prop plane"],
+].map(([slug, name]) => ({slug, name}));
+const MAX_CE = 3, MAX_ROUNDS = 30;
+const LIMIT = {participant: 80, name: 80, desc: 200, prop: 250, comment: 1000};
+const STORE = "counterexample-exercise-v1";
+
+const app = document.getElementById("app");
+const now = () => new Date().toISOString();
+const uid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2));
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (ch) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[ch]));
+const nameOf = (slug) => CATEGORIES.find((c) => c.slug === slug).name;
+const noun = (name) => name.replace(/^(a|an) /, "");
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+// ---- state: kept in this browser, and each object sent to the sheet whenever it changes ----
+function fresh() { return {session: uid(), participant: "", started: now(), cats: {}, pending: {}}; }
+let state = (() => {
+  try { const s = JSON.parse(localStorage.getItem(STORE)); if (s && s.session) return {pending: {}, ...s}; } catch (e) {}
+  return fresh();
+})();
+let view = {screen: state.participant ? "home" : "welcome", slug: null, confirm: null, error: ""};
+function persist() { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {} }
+const blankCe = () => ({name: "", desc: ""});
+const emptyDraft = (carried = []) => ({counterexamples: carried.length ? carried : [blankCe()], ruled: carried.map(() => true).concat(carried.length ? [] : [true]), property: ""});
+function cat(slug) {
+  return state.cats[slug] || (state.cats[slug] = {status: "new", properties: [], rounds: [], draft: emptyDraft(), start: "",
+                                                   comment: "", started: null, updated: null, finished: null, rev: 0});
+}
+function changed(slug) {
+  const c = cat(slug);
+  c.updated = now();
+  c.rev += 1;
+  state.pending[slug] = c.rev;
+  persist();
+  flush();
+}
+
+function payload(slug) {
+  const c = cat(slug);
+  return {version: VERSION, session: state.session, participant: state.participant, category: nameOf(slug), slug, status: c.status,
+          started: c.started, updated: c.updated, finished: c.finished, comment: c.comment,
+          properties: c.properties.map((p) => p.text),
+          rounds: c.rounds.map((r, i) => ({round: i + 1, at: r.at, property: r.property,
+                                           counterexamples: r.counterexamples.map((x) => ({name: x.name, description: x.desc, ruled_out: x.ruled_out}))}))};
+}
+
+let syncing = false, failed = false, retry = null;
+async function flush() {
+  if (!ENDPOINT || syncing) return showSave();
+  syncing = true;
+  showSave();
+  for (const slug of Object.keys(state.pending)) {
+    const rev = state.pending[slug];
+    const request = {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(payload(slug))};
+    try {
+      let answer;
+      try {
+        answer = await (await fetch(ENDPOINT, request)).json();
+      } catch (e) {
+        // A reply the browser won't let the page read (no CORS header) still means the row was written; the sheet
+        // keeps one row per session and object, so sending again is harmless. Offline, this throws too.
+        await fetch(ENDPOINT, {...request, mode: "no-cors"});
+        answer = {ok: true};
+      }
+      if (!answer.ok) throw new Error(answer.error || "not saved");
+      if (state.pending[slug] === rev) delete state.pending[slug];
+      persist();
+      failed = false;
+    } catch (e) {
+      failed = true;
+      break;
+    }
+  }
+  syncing = false;
+  showSave();
+  clearTimeout(retry);
+  if (Object.keys(state.pending).length) retry = setTimeout(flush, failed ? 15000 : 0);
+}
+window.addEventListener("online", flush);
+
+function saveText() {
+  if (!ENDPOINT) return ["warn", "Preview: answers are kept in this browser only"];
+  if (syncing) return ["", "Saving…"];
+  if (failed) return ["warn", "Not saved yet: can't reach the server, retrying"];
+  if (Object.keys(state.pending).length) return ["", "Saving…"];
+  return ["ok", "All answers saved"];
+}
+function showSave() {
+  const el = document.getElementById("save");
+  if (!el) return;
+  const [kind, text] = saveText();
+  el.className = `save ${kind}`;
+  el.textContent = text;
+}
+
+// ---- rendering ----
+const HOW = (example) => `
+  <ol class="steps">
+    <li>Write <b>one property</b> that every typical example of the object has.</li>
+    <li>Name up to <b>three counterexamples</b>: examples that are not members of the class but have <em>every</em> one of the properties so far.
+      This could mean a different class, or a "bad" version of the class (e.g. "a corgi with six legs").
+      Do not name members of the class, or toys, pictures, or models of members.</li>
+    <li>Find <b>a property</b> that every typical member of the class has, and that separates as many counterexamples from it as possible.</li>
+    <li>Repeat until you can't think of any more counterexamples.</li>
+  </ol>
+  <p class="muted">A property is one fact about how the object looks: that a part exists, or one part's count, shape, size, color, or position.
+    State sizes compared with another part ("the handle is about half as tall as the body", not "the handle is small").
+    Leave out what it does, what it's made for, or where it comes from.</p>
+  ${example ? `<div class="example">
+    <div class="label">Example: a mug</div>
+    <div><b>Property 1.</b> There is a handle.</div>
+    <div><b>Counterexamples.</b> A suitcase · a teapot · a mug with its handle on the bottom</div>
+    <div><b>Property 2.</b> The handle is attached to the side of the body. <span class="muted">It rules out the suitcase and the changed mug, but not the teapot, so the teapot carries over to the next round.</span></div>
+  </div>` : ""}`;
+
+function bar() {
+  const done = CATEGORIES.filter((c) => cat(c.slug).status === "done").length;
+  return `<header class="bar">
+    <div class="row"><button class="link" data-act="home">All objects</button><span class="muted small">${done} of ${CATEGORIES.length} finished · ${esc(state.participant)}</span></div>
+    <span id="save" class="save"></span>
+  </header>`;
+}
+
+function footer() {
+  return `<footer>
+    <button class="link" data-act="download">Download my answers</button>
+    ${view.confirm === "reset" ? `<span>Start over as someone else? This clears the answers kept in this browser (those already saved stay saved).
+      <button class="link" data-act="reset-yes">Yes, start over</button> · <button class="link" data-act="cancel">Cancel</button></span>`
+      : `<button class="link" data-act="reset">Not ${esc(state.participant || "you")}? Start over</button>`}
+  </footer>`;
+}
+
+function renderWelcome() {
+  app.innerHTML = `<div class="stack">
+    <h1>What makes it look like one?</h1>
+    <p>In this exercise you describe what an object looks like, one property at a time, until nothing else fits the description.
+      There are ten objects. Do as many as you like, in any order; each takes about 5 to 15 minutes, and your answers are saved as you go.</p>
+    <div class="panel stack"><h3>How it works</h3>${HOW(true)}</div>
+    <form class="panel stack" data-form="welcome">
+      <div class="field"><label for="participant"><b>Your name or initials</b></label>
+        <input id="participant" type="text" maxlength="${LIMIT.participant}" autocomplete="name" required value="${esc(state.participant)}"></div>
+      ${view.error ? `<div class="error">${esc(view.error)}</div>` : ""}
+      <div><button class="primary" type="submit">Start</button></div>
+    </form>
+  </div>`;
+}
+
+function renderHome() {
+  app.innerHTML = `${bar()}<div class="stack">
+    <h2>Choose an object</h2>
+    <div class="grid">${CATEGORIES.map(({slug, name}) => {
+      const c = cat(slug);
+      const badge = c.status === "done" ? `<span class="badge done">Finished</span>` : c.status === "active" ? `<span class="badge active">In progress</span>` : `<span class="badge">Not started</span>`;
+      const n = c.properties.length;
+      return `<button class="card" data-act="open" data-slug="${slug}"><span class="name">${esc(cap(name))}</span>
+        <span class="row">${badge}<span class="muted small">${n ? `${n} propert${n === 1 ? "y" : "ies"}, ${c.rounds.length} round${c.rounds.length === 1 ? "" : "s"}` : ""}</span></span></button>`;
+    }).join("")}</div>
+    <details><summary>How it works</summary><div class="stack" style="margin-top:12px">${HOW(true)}</div></details>
+  </div>${footer()}`;
+  showSave();
+}
+
+function propsList(c) {
+  if (!c.properties.length) return `<p class="muted">None yet.</p>`;
+  return `<ol class="props">${c.properties.map((p) => `<li>${esc(p.text)}</li>`).join("")}</ol>`;
+}
+
+function history(c) {
+  if (!c.rounds.length) return "";
+  return `<details${c.status === "done" ? " open" : ""}><summary>Rounds so far (${c.rounds.length})</summary><div class="history" style="margin-top:12px">${c.rounds.map((r, i) => `
+    <div class="round"><div class="label">Round ${i + 1}</div>
+      <div>${r.counterexamples.map((x) => `${esc(x.name)}${x.ruled_out ? "" : ' <span class="tag">not ruled out</span>'}`).join(" · ")}</div>
+      <div><span class="arrow">→</span> ${esc(r.property)}</div></div>`).join("")}</div></details>`;
+}
+
+function ceRow(d, i) {
+  const x = d.counterexamples[i];
+  return `<div class="ce" data-i="${i}">
+    <input class="name" type="text" data-field="name" maxlength="${LIMIT.name}" placeholder="Counterexample ${i + 1}" value="${esc(x.name)}" aria-label="Counterexample ${i + 1}">
+    <button type="button" class="remove" data-act="remove-ce" data-i="${i}" aria-label="Remove counterexample ${i + 1}"${d.counterexamples.length === 1 ? " disabled" : ""}>Remove</button>
+    <input class="desc" type="text" data-field="desc" maxlength="${LIMIT.desc}" placeholder="Description (optional)" value="${esc(x.desc)}" aria-label="Description of counterexample ${i + 1}">
+    ${x.carried ? `<span class="tag">Carried over: not ruled out last round</span>` : ""}
+  </div>`;
+}
+
+function rulesList(d) {
+  const named = d.counterexamples.map((x, i) => [x, i]).filter(([x]) => x.name.trim());
+  if (!named.length) return `<span class="muted small">Name a counterexample above first.</span>`;
+  return named.map(([x, i]) => `<label><input type="checkbox" data-rule="${i}"${d.ruled[i] ? " checked" : ""}> ${esc(x.name)}</label>`).join("");
+}
+
+function renderObject() {
+  const slug = view.slug, name = nameOf(slug), c = cat(slug), d = c.draft;
+  let work;
+  if (!c.properties.length) {
+    work = `<form class="panel stack" data-form="start">
+      <h3>Start with one property</h3>
+      <div class="field"><label for="start">A property that every typical ${esc(noun(name))} has</label>
+        <textarea id="start" maxlength="${LIMIT.prop}" data-start>${esc(c.start)}</textarea>
+        <div class="hint">One fact about how it looks. State sizes compared with another part.</div></div>
+      ${view.error ? `<div class="error">${esc(view.error)}</div>` : ""}
+      <div><button class="primary" type="submit">Add property</button></div>
+    </form>`;
+  } else if (c.status === "done") {
+    work = `<div class="panel stack">
+      <h3>Finished</h3>
+      <p>You found ${c.properties.length} propert${c.properties.length === 1 ? "y" : "ies"} in ${c.rounds.length} round${c.rounds.length === 1 ? "" : "s"}. Thank you!</p>
+      ${c.comment ? `<p class="muted">Your comment: ${esc(c.comment)}</p>` : ""}
+      <div class="row"><button class="primary" data-act="home">Choose another object</button><button data-act="reopen">Keep going after all</button></div>
+    </div>`;
+  } else {
+    const k = c.rounds.length + 1, full = c.rounds.length >= MAX_ROUNDS;
+    work = `<form class="panel stack" data-form="round">
+      <h3>Round ${k}</h3>
+      ${full ? `<p class="error">That's the most rounds this page takes (${MAX_ROUNDS}). Please finish this object.</p>` : `
+      <div class="field"><div>You are given a class of objects and a set of properties. Name up to three examples that are not members of the class but have <b>EVERY</b> one of the properties. This could mean a different class, or a "bad" version of the class (e.g. "a corgi with six legs"). Name three counterexamples if you can, fewer if you cannot. Do not name members of the class, or toys, pictures, or models of members.</div></div>
+      <div class="stack" style="gap:8px">${d.counterexamples.map((_, i) => ceRow(d, i)).join("")}</div>
+      ${d.counterexamples.length < MAX_CE ? `<div><button type="button" data-act="add-ce">Add a counterexample</button></div>` : ""}
+      <div class="field"><label for="prop"><b>Find a property</b> that every typical ${esc(noun(name))} has, and that separates as many counterexamples from it as possible</label>
+        <textarea id="prop" maxlength="${LIMIT.prop}" data-prop>${esc(d.property)}</textarea>
+        <div class="hint">One fact about how it looks. Sizes compared with another part: "the handle is about half as tall as the body", not "the handle is small".</div></div>
+      <div class="field"><div><b>Which counterexamples does it rule out?</b> <span class="muted small">Any left unticked carry over to the next round.</span></div>
+        <div class="rules" id="rules">${rulesList(d)}</div></div>
+      ${view.error ? `<div class="error">${esc(view.error)}</div>` : ""}
+      <div class="row"><button class="primary" type="submit">Add property and go on</button></div>`}
+    </form>
+    ${view.confirm === "finish" ? `<form class="panel stack confirm" data-form="finish">
+      <h3>Finish ${esc(name)}?</h3>
+      ${d.property.trim() || d.counterexamples.some((x) => x.name.trim()) ? `<p class="muted">What you've typed for round ${k} won't be kept.</p>` : ""}
+      <div class="field"><label for="comment">Anything you'd like to add? (optional)</label><textarea id="comment" maxlength="${LIMIT.comment}">${esc(c.comment)}</textarea></div>
+      <div class="row"><button class="primary" type="submit">Finish</button><button type="button" data-act="cancel">Not yet</button></div>
+    </form>` : `<div class="panel row spread">
+      <span>Can't think of any more counterexamples?</span>
+      <button data-act="finish">I can't think of any more</button>
+    </div>`}`;
+  }
+  app.innerHTML = `${bar()}<div class="stack">
+    <div><div class="label">Class</div><h2>${esc(cap(name))}</h2></div>
+    <div class="layout">
+      <div class="panel stack"><div class="row spread"><span class="label">Properties so far</span>
+        ${c.properties.length && c.status !== "done" ? `<button class="link small" data-act="undo">Undo last</button>` : ""}</div>
+        ${propsList(c)}${history(c)}</div>
+      <div class="stack">${work}</div>
+    </div>
+    <details><summary>How it works</summary><div class="stack" style="margin-top:12px">${HOW(true)}</div></details>
+  </div>${footer()}`;
+  showSave();
+}
+
+function render() {
+  if (view.screen === "welcome") renderWelcome();
+  else if (view.screen === "object") renderObject();
+  else renderHome();
+}
+function go(screen, slug = null) {
+  view = {screen, slug, confirm: null, error: ""};
+  render();
+  window.scrollTo(0, 0);
+}
+
+// ---- actions ----
+function addRound() {
+  const slug = view.slug, name = nameOf(slug), c = cat(slug), d = c.draft;
+  const named = d.counterexamples.map((x, i) => [x, i]).filter(([x]) => x.name.trim());
+  const property = d.property.trim();
+  view.error = !named.length ? `Name at least one counterexample, or press "I can't think of any more".`
+    : !property ? `Write the property that tells ${name} apart from them.`
+    : !named.some(([, i]) => d.ruled[i]) ? "The new property should rule out at least one of the counterexamples." : "";
+  if (view.error) return render();
+  const at = now();
+  const counterexamples = named.map(([x, i]) => ({name: x.name.trim(), desc: x.desc.trim(), ruled_out: !!d.ruled[i]}));
+  c.rounds.push({at, property, counterexamples});
+  c.properties.push({text: property, round: c.rounds.length, at});
+  c.draft = emptyDraft(counterexamples.filter((x) => !x.ruled_out).map((x) => ({name: x.name, desc: x.desc, carried: true})));
+  changed(slug);
+  render();
+  document.querySelector('[data-field="name"]')?.focus();
+}
+
+app.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const form = e.target.dataset.form;
+  if (form === "welcome") {
+    const value = document.getElementById("participant").value.trim();
+    if (!value) { view.error = "Please write your name or initials."; return render(); }
+    state.participant = value;
+    persist();
+    for (const slug of Object.keys(state.cats)) changed(slug);
+    go("home");
+  } else if (form === "start") {
+    const c = cat(view.slug), text = c.start.trim();
+    if (!text) { view.error = "Write one property first."; return render(); }
+    c.properties = [{text, round: 0, at: now()}];
+    c.start = "";
+    c.status = "active";
+    c.started = c.started || now();
+    view.error = "";
+    changed(view.slug);
+    render();
+  } else if (form === "round") {
+    addRound();
+  } else if (form === "finish") {
+    const c = cat(view.slug);
+    c.comment = document.getElementById("comment").value.trim();
+    c.status = "done";
+    c.finished = now();
+    c.draft = emptyDraft();
+    view.confirm = null;
+    view.error = "";
+    changed(view.slug);
+    render();
+    window.scrollTo(0, 0);
+  }
+});
+
+app.addEventListener("input", (e) => {
+  const t = e.target;
+  if (view.screen !== "object") return;
+  const c = cat(view.slug), d = c.draft;
+  if (t.dataset.start !== undefined) c.start = t.value;
+  else if (t.dataset.prop !== undefined) d.property = t.value;
+  else if (t.dataset.field) {
+    const i = +t.closest(".ce").dataset.i;
+    d.counterexamples[i][t.dataset.field] = t.value;
+    if (t.dataset.field === "name") document.getElementById("rules").innerHTML = rulesList(d);
+  } else if (t.dataset.rule !== undefined) d.ruled[+t.dataset.rule] = t.checked;
+  persist();
+});
+
+app.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-act]");
+  if (!b) return;
+  const act = b.dataset.act;
+  const c = view.slug ? cat(view.slug) : null;
+  if (act === "home") go("home");
+  else if (act === "open") go("object", b.dataset.slug);
+  else if (act === "add-ce" && c.draft.counterexamples.length < MAX_CE) {
+    c.draft.counterexamples.push(blankCe());
+    c.draft.ruled.push(true);
+    persist();
+    render();
+    document.querySelectorAll('[data-field="name"]')[c.draft.counterexamples.length - 1]?.focus();
+  } else if (act === "remove-ce") {
+    const i = +b.dataset.i;
+    c.draft.counterexamples.splice(i, 1);
+    c.draft.ruled.splice(i, 1);
+    persist();
+    render();
+  } else if (act === "undo") {
+    if (c.rounds.length) {
+      const last = c.rounds.pop();
+      c.properties.pop();
+      c.draft = {counterexamples: last.counterexamples.map(({name, desc}) => ({name, desc})), ruled: last.counterexamples.map((x) => x.ruled_out), property: last.property};
+    } else {
+      c.start = c.properties[0]?.text || "";
+      c.properties = [];
+      c.status = "new";
+    }
+    view.error = "";
+    changed(view.slug);
+    render();
+  } else if (act === "finish") { view.confirm = "finish"; view.error = ""; render(); document.getElementById("comment")?.focus(); }
+  else if (act === "reopen") { c.status = "active"; c.finished = null; changed(view.slug); render(); }
+  else if (act === "cancel") { view.confirm = null; render(); }
+  else if (act === "reset") { view.confirm = "reset"; render(); }
+  else if (act === "reset-yes") {
+    if (ENDPOINT && Object.keys(state.pending).length) {
+      view.confirm = null;
+      render();
+      document.getElementById("save").textContent = "Some answers are still being saved; try again in a moment.";
+      return flush();
+    }
+    state = fresh();
+    persist();
+    go("welcome");
+  } else if (act === "download") {
+    const blob = new Blob([JSON.stringify({session: state.session, participant: state.participant,
+      objects: CATEGORIES.filter((x) => state.cats[x.slug]).map((x) => payload(x.slug))}, null, 1)], {type: "application/json"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `counterexample-exercise-${(state.participant || "answers").replace(/\W+/g, "-")}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  }
+});
+
+render();
+flush();
+</script>
+</body>
+</html>
