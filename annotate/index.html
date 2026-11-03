@@ -63,6 +63,9 @@
   td.id { font-family: ui-monospace, Menlo, monospace; font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
   td.note { width: 30%; }
   details summary { cursor: pointer; color: var(--accent); }
+  .keys { font-size: 0.8rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  kbd { font: 0.75rem ui-monospace, Menlo, monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--surface); color: var(--fg); }
+  tr[data-id] { scroll-margin-top: 90px; scroll-margin-bottom: 40px; }
   footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); }
   .error { color: var(--no); font-size: 0.9rem; }
 </style>
@@ -202,10 +205,12 @@ function renderObject() {
   app.innerHTML = `${bar()}<div class="stack">
     <div class="row spread"><h2>${esc(cap(o.name))}</h2><span class="muted small">${n} of ${o.properties.length} annotated</span></div>
     <div class="tools"><label class="check"><input type="checkbox" data-act="only-left"${view.onlyLeft ? " checked" : ""}> Unanswered only</label>
+      <span class="keys"><span><kbd>↑</kbd> <kbd>↓</kbd> or <kbd>Enter</kbd> previous / next property</span><span><kbd>Y</kbd> <kbd>N</kbd> <kbd>U</kbd> necessary: yes / no / unsure</span>
+        <span><kbd>O</kbd> numbers off</span><span><kbd>Tab</kbd> next column</span></span>
       <details${view.open ? " open" : ""} data-act="how"><summary>How to judge a property</summary><div class="stack" style="margin-top:10px">${HOW}</div></details></div>
     <div class="tablewrap"><table><tr><th>ID</th><th>Property of ${esc(o.name)}</th><th>Necessary?</th><th>Numbers</th><th>Note (optional)</th></tr>
       ${rows.map((p) => { const x = a.answers[p.id] || {};
-        return `<tr class="${answered(x) ? "answered" : ""}"><td class="id">${p.id}</td><td class="prop">${esc(p.text)}</td>
+        return `<tr data-id="${p.id}" class="${answered(x) ? "answered" : ""}"><td class="id">${p.id}</td><td class="prop">${esc(p.text)}</td>
           <td>${select(o.slug, p.id, "nec", x.nec, NEC)}</td><td>${select(o.slug, p.id, "num", x.num, NUM)}</td>
           <td class="note"><input type="text" maxlength="300" data-slug="${o.slug}" data-id="${p.id}" data-field="note" value="${esc(x.note)}"></td></tr>`;
       }).join("") || `<tr><td colspan="5" class="muted">Every property of ${esc(o.name)} is answered.</td></tr>`}</table></div>
@@ -216,6 +221,11 @@ function renderObject() {
   showSave();
 }
 function render() { if (view.screen === "welcome") renderWelcome(); else if (view.screen === "object") renderObject(); else renderHome(); }
+function focusFirst() {
+  const rows = [...document.querySelectorAll("tr[data-id]")];
+  const a = ann(view.slug), row = rows.find((r) => !answered(a.answers[r.dataset.id])) || rows[0];
+  if (row) { row.querySelector("[data-field=nec]").focus({preventScroll: true}); row.scrollIntoView({block: "nearest"}); }
+}
 function go(screen, slug = null) { view = {...view, screen, slug, confirm: null, error: ""}; render(); window.scrollTo(0, 0); }
 
 // ---- actions ----
@@ -246,13 +256,39 @@ app.addEventListener("change", (e) => {
   const total = document.getElementById("total");
   if (total) total.textContent = `${DATA.objects.reduce((n, o) => n + done(o.slug), 0)} of ${DATA.objects.reduce((n, o) => n + o.properties.length, 0)} properties annotated · ${state.participant}`;
 });
+// Keys on an object's table: up/down or Enter move between properties (keeping the column), Y/N/U set Necessary,
+// O toggles Numbers off. Letters are left alone while typing in a text box; Tab moves between columns as usual.
+function setField(row, field, value) {
+  const el = row.querySelector(`select[data-field=${field}]`);
+  el.value = value;
+  el.dispatchEvent(new Event("change", {bubbles: true}));
+}
+app.addEventListener("keydown", (e) => {
+  if (view.screen !== "object" || e.metaKey || e.ctrlKey || e.altKey) return;
+  const t = e.target, row = t.closest && t.closest("tr[data-id]");
+  if (!row) return;
+  const typing = t.matches("input[type=text]");
+  if (e.key === "Enter" || e.key === "ArrowDown" || e.key === "ArrowUp") {
+    e.preventDefault();
+    const rows = [...document.querySelectorAll("tr[data-id]")];
+    const next = rows[rows.indexOf(row) + (e.key === "ArrowUp" ? -1 : 1)];
+    if (!next) return;
+    if (typing) t.blur();  // saves the note
+    next.querySelector(`[data-field=${t.dataset.field || "nec"}]`).focus({preventScroll: true});
+    next.scrollIntoView({block: "nearest"});
+  } else if (!typing) {
+    const key = e.key.toLowerCase(), nec = {y: "Y", n: "N", u: "F"}[key];
+    if (nec) { e.preventDefault(); setField(row, "nec", nec); }
+    else if (key === "o") { e.preventDefault(); setField(row, "num", row.querySelector("select[data-field=num]").value === "off" ? "" : "off"); }
+  }
+});
 app.addEventListener("toggle", (e) => { if (e.target.dataset && e.target.dataset.act === "how") view.open = e.target.open; }, true);
 app.addEventListener("click", (e) => {
   const b = e.target.closest("button[data-act]");
   if (!b) return;
   const act = b.dataset.act;
   if (act === "home") go("home");
-  else if (act === "open") go("object", b.dataset.slug);
+  else if (act === "open") { go("object", b.dataset.slug); focusFirst(); }
   else if (act === "reset") { view.confirm = "reset"; render(); }
   else if (act === "cancel") { view.confirm = null; render(); }
   else if (act === "reset-yes") {
