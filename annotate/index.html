@@ -10,17 +10,17 @@
 <style>
   :root {
     --bg: #f6f5f1; --surface: #ffffff; --sunk: #efede7; --fg: #1d2026; --muted: #5d6270; --line: #dad7ce;
-    --accent: #2d5b88; --accent-fg: #ffffff; --ok: #2c7a4d; --warn: #9a5a00; --no: #ad3737; --done-soft: #e9f3ec;
+    --accent: #2d5b88; --accent-fg: #ffffff; --ok: #2c7a4d; --warn: #9a5a00; --no: #ad3737; --done-soft: #e9f3ec; --current-soft: #e2ecf6;
     --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
     --bg: #15171b; --surface: #1d2026; --sunk: #191b20; --fg: #e7e5e0; --muted: #a0a4ae; --line: #343841;
-    --accent: #8db5dd; --accent-fg: #10161d; --ok: #6cbf8c; --warn: #e2a95c; --no: #e47c7c; --done-soft: #1f2d24; color-scheme: dark; } }
+    --accent: #8db5dd; --accent-fg: #10161d; --ok: #6cbf8c; --warn: #e2a95c; --no: #e47c7c; --done-soft: #1f2d24; --current-soft: #22303e; color-scheme: dark; } }
   :root[data-theme="dark"] {
     --bg: #15171b; --surface: #1d2026; --sunk: #191b20; --fg: #e7e5e0; --muted: #a0a4ae; --line: #343841;
-    --accent: #8db5dd; --accent-fg: #10161d; --ok: #6cbf8c; --warn: #e2a95c; --no: #e47c7c; --done-soft: #1f2d24; color-scheme: dark; }
+    --accent: #8db5dd; --accent-fg: #10161d; --ok: #6cbf8c; --warn: #e2a95c; --no: #e47c7c; --done-soft: #1f2d24; --current-soft: #22303e; color-scheme: dark; }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 var(--sans); padding: env(safe-area-inset-top, 0px) 16px env(safe-area-inset-bottom, 0px); }
   main { max-width: 1040px; margin: 0 auto; padding-block: 24px 64px; }
@@ -58,6 +58,8 @@
   tr:last-child td { border-bottom: 0; }
   tr.answered td.prop { color: var(--fg); }
   tr.answered { background: var(--done-soft); }
+  tr:focus-within { background: var(--current-soft); box-shadow: inset 3px 0 0 var(--accent); }
+  tr:focus-within td.prop { font-weight: 600; }
   td.id { font-family: ui-monospace, Menlo, monospace; font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
   td.note { width: 30%; }
   details summary { cursor: pointer; color: var(--accent); }
@@ -73,7 +75,7 @@
 let ENDPOINT = "https://script.google.com/macros/s/AKfycbz9vFTyjYZDZEp82h8WxGvcFIycT5fYLrNCXyt1eqw-00YVSjdWVzS7hteFPoJz-1CQeg/exec";
 const STORE = "property-annotation-v1";
 const NEC = [["", "—"], ["Y", "Yes"], ["N", "No"], ["F", "Unsure"]];
-const NUM = [["", "—"], ["none", "No number"], ["ok", "Holds"], ["off", "Off"], ["F", "Unsure"]];
+const NUM = [["", "—"], ["off", "Off"]];
 const app = document.getElementById("app");
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 const now = () => new Date().toISOString();
@@ -88,7 +90,7 @@ let view = {screen: state.participant ? "home" : "welcome", slug: null, open: fa
 function persist() { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {} }
 const obj = (slug) => DATA.objects.find((o) => o.slug === slug);
 function ann(slug) { return state.objects[slug] || (state.objects[slug] = {answers: {}, comment: "", started: null, updated: null, rev: 0}); }
-const answered = (a) => a && a.nec && a.num;
+const answered = (a) => a && a.nec;
 function done(slug) { const a = ann(slug); return obj(slug).properties.filter((p) => answered(a.answers[p.id])).length; }
 
 // ---- saving: each object sent whenever it changes, a moment after the last change ----
@@ -145,8 +147,8 @@ function showSave() {
 const HOW = `<ol class="steps">
   <li><b>Necessary?</b> Does every typical example of the object have this property? Answer <i>Yes</i>, <i>No</i>, or <i>Unsure</i>.
     Think of the usual forms of the object as it is commonly seen or shown, not rare variants, damaged ones, or toys.</li>
-  <li><b>Numbers.</b> If the property states a number, a count, a ratio, or a size compared with another part ("about a quarter as long as the body", "shorter than the head"),
-    does it hold for a typical example? Answer <i>Holds</i>, <i>Off</i>, or <i>Unsure</i>. If it states none, choose <i>No number</i>.</li>
+  <li><b>Numbers.</b> If the property states a number, a count, a ratio, or a size compared with another part ("about a quarter as long as the body", "shorter than the head")
+    and it does not hold for a typical example, mark it <i>Off</i>. Otherwise leave it as —.</li>
   <li><b>Note</b> (optional): why, or what the right value would be.</li>
 </ol>
 <p class="muted small">The properties were found by an automated search for each object. Judge each one on its own. Do as many objects as you like; each is saved as you go.</p>`;
