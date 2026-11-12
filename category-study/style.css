@@ -31,6 +31,13 @@ button:disabled { opacity: .55; cursor: default; }
 .progress { height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; }
 .bar { height: 100%; width: 0; background: var(--accent); transition: width .2s; }
 .count { color: var(--ink2); font-size: 14px; margin: 10px 0 4px; }
+.topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 6px; }
+.topline .count { margin: 4px 0; }
+button.small { padding: 6px 12px; font-size: 14px; }
+dialog { max-width: 680px; width: calc(100% - 32px); border: 1px solid var(--line); border-radius: 12px; padding: 24px;
+         background: var(--panel); color: var(--ink); }
+dialog::backdrop { background: rgba(0, 0, 0, .45); }
+dialog .nav { margin-top: 16px; }
 .reminder { color: var(--ink2); }
 .props { list-style: none; padding: 0; margin: 16px 0 20px; display: grid; gap: 8px; counter-reset: p; }
 .props li { display: grid; grid-template-columns: 30px 30px 1fr; align-items: center; gap: 6px; border-radius: 8px; }

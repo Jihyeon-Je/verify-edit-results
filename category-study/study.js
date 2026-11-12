@@ -323,6 +323,15 @@
     $("participant").addEventListener("input", function (e) { state.participant = e.target.value.trim(); save(); });
     $("start").addEventListener("click", function () { go(1); });
     $("toggle").addEventListener("click", toggleGallery);
+    // the Instructions button on each class page: the welcome page's instructions, in a dialog
+    var help = $("instructions").cloneNode(true);
+    help.removeAttribute("id");
+    $("help-body").appendChild(help);
+    var dlg = $("help-dialog");
+    $("help").addEventListener("click", function () {
+      if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+    });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg && dlg.close) dlg.close(); });  // a click outside the box
     $("back").addEventListener("click", function () { go(state.step - 1); });
     $("next").addEventListener("click", function () {
       if (!filled(classes[state.step - 1].id).length) {

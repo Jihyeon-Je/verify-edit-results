@@ -10,6 +10,7 @@
 <main id="app">
   <section id="welcome" class="step">
     <h1>Describing object classes</h1>
+    <div id="instructions">
     <p class="lead">Thank you for helping with the survey! You will see the names of 10 classes. For each one, write up to 10
       properties that describe it, <b>ranked in order of importance</b> (most important first). It should take about 15 minutes.</p>
     <div class="note">
@@ -17,7 +18,8 @@
       <p>Describe what members of the class look like: their parts, shapes, sizes, colors, and how the parts are arranged.
         Do not just say what the object is: for example, you cannot say "This is a dog."</p>
       <p>Write what is true of members of the class in general, the way you would describe the class to someone who has
-        never seen one. Do not describe one particular example, such as its background, pose, or the color of one individual.</p>
+        never seen one. Try to think of the most general description of the class. Do not describe one particular example, such as
+        its background, pose, or the color of one individual.</p>
       <div class="examples">
         <div><span class="tag good">General</span> A bicycle has two wheels, one behind the other.</div>
         <div><span class="tag good">General</span> The pedals are between the two wheels, below the seat.</div>
@@ -29,6 +31,7 @@
     <p>For each class there is a button that shows 5 example instances of the class. You may optionally refer to them, but please
       note that they are only there to help you: they are a small subset of the entire class, and there could be many other
       instances they do not cover.</p>
+    </div>
     <label class="field">Your name or participant ID (optional)
       <input id="participant" type="text" autocomplete="off" maxlength="80">
     </label>
@@ -38,7 +41,10 @@
 
   <section id="category" class="step" hidden>
     <div class="progress"><div class="bar" id="bar"></div></div>
-    <p class="count" id="count"></p>
+    <div class="topline">
+      <p class="count" id="count"></p>
+      <button id="help" class="secondary small" type="button" aria-haspopup="dialog">Instructions</button>
+    </div>
     <h1 id="name"></h1>
     <p class="reminder">List up to 10 properties of this class, <b>most important first</b>. Each should hold for members of
       the class in general, not just for one particular example. You may list fewer than 10 if you think fewer is sufficient
@@ -72,6 +78,11 @@
     <p class="fine">Response code: <code id="code"></code></p>
   </section>
 </main>
+<dialog id="help-dialog" aria-labelledby="help-title">
+  <h1 id="help-title">Instructions</h1>
+  <div id="help-body"></div>
+  <form method="dialog" class="nav"><span></span><button class="primary">Close</button></form>
+</dialog>
 <script src="config.js"></script>
 <script src="study.js"></script>
 </body>
