@@ -66,3 +66,4 @@ dialog.viewer { max-width: min(960px, calc(100% - 32px)); width: auto; padding: 
 code { font-size: 14px; }
 @media (max-width: 620px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 520px) { .step { padding: 22px 16px; } h1 { font-size: 22px; } }
+body.dragging-row { user-select: none; -webkit-user-select: none; cursor: grabbing; }

@@ -56,19 +56,15 @@
     a.reorders = (a.reorders || 0) + 1;
     sync(a);
   }
-  // Drag a row by its handle (mouse, pen, or touch, through pointer events), or move it with the arrow keys.
+  // Drag a row by its handle (mouse, pen, or touch, through pointer events), or move it with the arrow keys. The moves and
+  // the release are followed on the whole window: moving the row in the page drops a pointer capture on its handle, so
+  // listening on the handle alone would lose the drag after the first step.
   function draggable(li, handle, a) {
-    var ol = $("props"), start = -1;
+    var ol = $("props"), start = -1, pid = null;
     var index = function () { return Array.prototype.indexOf.call(ol.children, li); };
-    handle.addEventListener("pointerdown", function (e) {
-      if (e.button !== undefined && e.button !== 0) return;
+    var move = function (e) {
+      if (start < 0 || (pid !== null && e.pointerId !== pid)) return;
       e.preventDefault();
-      start = index();
-      li.classList.add("dragging");
-      try { handle.setPointerCapture(e.pointerId); } catch (err) { /* synthetic events have no pointer to capture */ }
-    });
-    handle.addEventListener("pointermove", function (e) {
-      if (start < 0) return;
       if (e.clientY < 60) window.scrollBy(0, -12);
       else if (e.clientY > window.innerHeight - 60) window.scrollBy(0, 12);
       var rows = Array.prototype.filter.call(ol.children, function (r) { return r !== li; });
@@ -77,19 +73,33 @@
         var box = rows[r].getBoundingClientRect();
         if (e.clientY < box.top + box.height / 2) { before = rows[r]; break; }
       }
-      if (before !== li.nextSibling || (before === null && ol.lastChild !== li)) {
+      if (before !== li.nextSibling) {
         ol.insertBefore(li, before);
         renumber();
       }
-    });
-    var end = function () {
-      if (start < 0) return;
+    };
+    var end = function (e) {
+      if (start < 0 || (pid !== null && e.pointerId !== pid)) return;
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", end);
+      window.removeEventListener("pointercancel", end);
+      document.body.classList.remove("dragging-row");
       li.classList.remove("dragging");
       if (index() !== start) moved(a);
       start = -1;
+      pid = null;
     };
-    handle.addEventListener("pointerup", end);
-    handle.addEventListener("pointercancel", end);
+    handle.addEventListener("pointerdown", function (e) {
+      if (e.button !== undefined && e.button !== 0) return;
+      e.preventDefault();
+      start = index();
+      pid = e.pointerId === undefined ? null : e.pointerId;
+      li.classList.add("dragging");
+      document.body.classList.add("dragging-row");  // no text selection while dragging
+      window.addEventListener("pointermove", move, { passive: false });
+      window.addEventListener("pointerup", end);
+      window.addEventListener("pointercancel", end);
+    });
     handle.addEventListener("keydown", function (e) {
       var i = index();
       if (e.key === "ArrowUp" && i > 0) ol.insertBefore(li, ol.children[i - 1]);
