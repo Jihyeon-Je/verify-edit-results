@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Describing Object Classes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+  <section id="welcome" class="step">
+    <h1>Describing object classes</h1>
+    <p class="lead">Thank you for helping with the survey! You will see the names of 10 classes. For each one, write up to 10
+      properties that describe it, <b>ranked in order of importance</b> (most important first). It should take about 15 minutes.</p>
+    <div class="note">
+      <h2>Properties should be general to the class, not to one instance</h2>
+      <p>Write what is true of members of the class in general, the way you would describe the class to someone who has
+        never seen one. Do not describe one particular example, such as its background, pose, or the color of one individual.</p>
+      <div class="examples">
+        <div><span class="tag good">General</span> A bicycle has two wheels, one behind the other.</div>
+        <div><span class="tag good">General</span> Pedals turn a chain that drives the rear wheel.</div>
+        <div><span class="tag bad">Instance</span> The bicycle is leaning against a wall.</div>
+        <div><span class="tag bad">Instance</span> Its frame is red.</div>
+      </div>
+    </div>
+    <p>For each class there is a button that shows 5 example instances of the class. You may optionally refer to them, but please
+      note that they are only there to help you: they are a small subset of the entire class, and there could be many other
+      instances they do not cover.</p>
+    <label class="field">Your name or participant ID (optional)
+      <input id="participant" type="text" autocomplete="off" maxlength="80">
+    </label>
+    <button id="start" class="primary">Start</button>
+    <p class="fine credits"><a href="credits.html" target="_blank" rel="noopener">Image credits</a></p>
+  </section>
+
+  <section id="category" class="step" hidden>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <p class="count" id="count"></p>
+    <h1 id="name"></h1>
+    <p class="reminder">List up to 10 properties of this class, <b>most important first</b>. Each should hold for members of
+      the class in general, not just for one particular example. You may list fewer than 10 if you think fewer is sufficient
+      to describe the class.</p>
+    <ol id="props" class="props"></ol>
+    <p class="fine hint">Drag a row by its &#9776; handle to change its rank.</p>
+    <button id="toggle" class="secondary" type="button" aria-expanded="false">Show 5 example instances</button>
+    <div id="gallery" class="gallery" hidden></div>
+    <p id="error" class="error" role="alert"></p>
+    <div class="nav">
+      <button id="back" class="secondary" type="button">Back</button>
+      <button id="next" class="primary" type="button">Next</button>
+    </div>
+  </section>
+
+  <section id="review" class="step" hidden>
+    <h1>Ready to submit</h1>
+    <p>You described all 10 classes. You can go back to change anything before you submit.</p>
+    <ul id="summary" class="summary"></ul>
+    <p id="submit-error" class="error" role="alert"></p>
+    <div class="nav">
+      <button id="review-back" class="secondary" type="button">Back</button>
+      <button id="submit" class="primary" type="button">Submit</button>
+    </div>
+  </section>
+
+  <section id="done" class="step" hidden>
+    <h1>Thank you!</h1>
+    <p>Your answers were sent. You can close this page.</p>
+    <p class="fine">Response code: <code id="code"></code></p>
+  </section>
+</main>
+<script src="config.js"></script>
+<script src="study.js"></script>
+</body>
+</html>

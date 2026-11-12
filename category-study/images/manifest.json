@@ -1,0 +1,336 @@
+{
+ "seed": 0,
+ "note": "5 images a class, sampled (random.Random(0)) from dataset/<set>/<slug>/within-class; Specific classes only from photos with a Commons license on record",
+ "classes": [
+  {
+   "id": "pembroke-corgi",
+   "name": "a Pembroke corgi",
+   "set": "imagenet20",
+   "images": [
+    {
+     "src": "images/pembroke-corgi/1.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/pembroke-corgi/within-class/24_43670_263_0.812.jpg"
+    },
+    {
+     "src": "images/pembroke-corgi/2.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/pembroke-corgi/within-class/26_2031_263_0.804.jpg"
+    },
+    {
+     "src": "images/pembroke-corgi/3.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/pembroke-corgi/within-class/02_14520_263_0.884.jpg"
+    },
+    {
+     "src": "images/pembroke-corgi/4.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/pembroke-corgi/within-class/16_11758_263_0.830.jpg"
+    },
+    {
+     "src": "images/pembroke-corgi/5.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/pembroke-corgi/within-class/32_27939_263_0.757.jpg"
+    }
+   ]
+  },
+  {
+   "id": "meerkat",
+   "name": "a meerkat",
+   "set": "imagenet20",
+   "images": [
+    {
+     "src": "images/meerkat/1.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/meerkat/within-class/24_37517_299_0.866.jpg"
+    },
+    {
+     "src": "images/meerkat/2.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/meerkat/within-class/26_14169_299_0.857.jpg"
+    },
+    {
+     "src": "images/meerkat/3.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/meerkat/within-class/02_1710_299_0.950.jpg"
+    },
+    {
+     "src": "images/meerkat/4.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/meerkat/within-class/16_2447_299_0.890.jpg"
+    },
+    {
+     "src": "images/meerkat/5.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/meerkat/within-class/32_39265_299_0.805.jpg"
+    }
+   ]
+  },
+  {
+   "id": "daruma-doll",
+   "name": "a daruma doll",
+   "set": "specific20",
+   "images": [
+    {
+     "src": "images/daruma-doll/1.jpg",
+     "credit": "Hyppolyte de Saint-Rambert, CC BY 4.0, via Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Katsu%C5%8D-ji_(Minoh_Osaka)_Temple_hdsr_S5_da11.jpg",
+     "from": "dataset/specific20/a-daruma-doll/within-class/006.jpg"
+    },
+    {
+     "src": "images/daruma-doll/2.jpg",
+     "credit": "Chris Gladis, CC BY 2.0, via Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Katsuo-ji_daruma.jpg",
+     "from": "dataset/specific20/a-daruma-doll/within-class/061.jpg"
+    },
+    {
+     "src": "images/daruma-doll/3.jpg",
+     "credit": "Ebiebi2, CC BY-SA 4.0, via Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Koshigaya_Dharma_1.jpg",
+     "from": "dataset/specific20/a-daruma-doll/within-class/021.jpg"
+    },
+    {
+     "src": "images/daruma-doll/4.jpg",
+     "credit": "ウィ貴公子, CC BY-SA 4.0, via Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:%E9%AB%98%E5%B4%8E%E3%81%A0%E3%82%8B%E3%81%BE_JR%E6%9D%B1%E6%97%A5%E6%9C%AC%E9%AB%98%E5%B4%8E%E7%B7%9A%E9%AB%98%E5%B4%8E%E9%A7%85_2022%E5%B9%B412%E6%9C%8817%E6%97%A5%E3%81%AE%E9%AB%98%E5%B4%8E%E5%B8%82_202212171120_IMG_3950.jpg",
+     "from": "dataset/specific20/a-daruma-doll/within-class/003.jpg"
+    },
+    {
+     "src": "images/daruma-doll/5.jpg",
+     "credit": "Leohideki86, CC BY 4.0, via Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Daruma2026.jpg",
+     "from": "dataset/specific20/a-daruma-doll/within-class/075.jpg"
+    }
+   ]
+  },
+  {
+   "id": "arabian-camel",
+   "name": "an Arabian camel",
+   "set": "imagenet20",
+   "images": [
+    {
+     "src": "images/arabian-camel/1.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/arabian-camel/within-class/24_12914_354_0.819.jpg"
+    },
+    {
+     "src": "images/arabian-camel/2.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/arabian-camel/within-class/26_42818_354_0.812.jpg"
+    },
+    {
+     "src": "images/arabian-camel/3.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/arabian-camel/within-class/02_12401_354_0.904.jpg"
+    },
+    {
+     "src": "images/arabian-camel/4.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/arabian-camel/within-class/16_18152_354_0.845.jpg"
+    },
+    {
+     "src": "images/arabian-camel/5.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/arabian-camel/within-class/32_45120_354_0.799.jpg"
+    }
+   ]
+  },
+  {
+   "id": "maneki-neko",
+   "name": "a Japanese maneki-neko",
+   "set": "specific20",
+   "images": [
+    {
+     "src": "images/maneki-neko/1.jpg",
+     "credit": "Yves Tennevin, CC BY-SA 3.0, via Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Japan_Expo_Sud_-_Ambiances_-_2012-03-03-_Stand_vente_de_Maneki_Neko_-_P1340962.jpg",
+     "from": "dataset/specific20/a-maneki-neko/within-class/058.jpg"
+    },
+    {
+     "src": "images/maneki-neko/2.jpg",
+     "credit": "IQRemix from Canada, CC BY-SA 2.0, via Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Edmonton_Chinese_New_Year_2015_(16282389208).jpg",
+     "from": "dataset/specific20/a-maneki-neko/within-class/039.jpg"
+    },
+    {
+     "src": "images/maneki-neko/3.jpg",
+     "credit": "DimiTalen, CC0, via Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Maneki_neko_close-up.jpg",
+     "from": "dataset/specific20/a-maneki-neko/within-class/051.jpg"
+    },
+    {
+     "src": "images/maneki-neko/4.jpg",
+     "credit": "Guilhem Vellut from Annecy, France, CC BY 2.0, via Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Manekineko_@_Gotoku-ji_Temple_@_Setagaya_(13796797424).jpg",
+     "from": "dataset/specific20/a-maneki-neko/within-class/020.jpg"
+    },
+    {
+     "src": "images/maneki-neko/5.jpg",
+     "credit": "Immanuel Giel, CC BY-SA 3.0, via Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Maneki_neko_Germersheim_1.jpg",
+     "from": "dataset/specific20/a-maneki-neko/within-class/041.jpg"
+    }
+   ]
+  },
+  {
+   "id": "spider",
+   "name": "a spider",
+   "set": "objaverse20",
+   "images": [
+    {
+     "src": "images/spider/1.jpg",
+     "credit": "3D model: Spider (Objaverse)",
+     "from": "dataset/objaverse20/spider/within-class/24_951_0.841.jpg"
+    },
+    {
+     "src": "images/spider/2.jpg",
+     "credit": "3D model: spider (Objaverse)",
+     "from": "dataset/objaverse20/spider/within-class/26_951_0.827.jpg"
+    },
+    {
+     "src": "images/spider/3.jpg",
+     "credit": "3D model: Black Widow (Objaverse)",
+     "from": "dataset/objaverse20/spider/within-class/02_951_0.886.jpg"
+    },
+    {
+     "src": "images/spider/4.jpg",
+     "credit": "3D model: Tarantula (Objaverse)",
+     "from": "dataset/objaverse20/spider/within-class/16_951_0.851.jpg"
+    },
+    {
+     "src": "images/spider/5.jpg",
+     "credit": "3D model: SM SteampunkSpider 01 B Optimized (Objaverse)",
+     "from": "dataset/objaverse20/spider/within-class/32_951_0.814.jpg"
+    }
+   ]
+  },
+  {
+   "id": "pelican",
+   "name": "a pelican",
+   "set": "imagenet20",
+   "images": [
+    {
+     "src": "images/pelican/1.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/pelican/within-class/24_15580_144_0.844.jpg"
+    },
+    {
+     "src": "images/pelican/2.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/pelican/within-class/26_40166_144_0.842.jpg"
+    },
+    {
+     "src": "images/pelican/3.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/pelican/within-class/02_8298_144_0.931.jpg"
+    },
+    {
+     "src": "images/pelican/4.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/pelican/within-class/16_39092_144_0.880.jpg"
+    },
+    {
+     "src": "images/pelican/5.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/pelican/within-class/32_31950_144_0.815.jpg"
+    }
+   ]
+  },
+  {
+   "id": "pistol",
+   "name": "a pistol",
+   "set": "objaverse20",
+   "images": [
+    {
+     "src": "images/pistol/1.jpg",
+     "credit": "3D model: Enter a title (Objaverse)",
+     "from": "dataset/objaverse20/pistol/within-class/24_763_0.878.jpg"
+    },
+    {
+     "src": "images/pistol/2.jpg",
+     "credit": "3D model: 9mm Uzi (Objaverse)",
+     "from": "dataset/objaverse20/pistol/within-class/26_763_0.877.jpg"
+    },
+    {
+     "src": "images/pistol/3.jpg",
+     "credit": "3D model: LowPolly Pistol (Objaverse)",
+     "from": "dataset/objaverse20/pistol/within-class/02_763_0.919.jpg"
+    },
+    {
+     "src": "images/pistol/4.jpg",
+     "credit": "3D model: Pistol USP (Objaverse)",
+     "from": "dataset/objaverse20/pistol/within-class/16_763_0.897.jpg"
+    },
+    {
+     "src": "images/pistol/5.jpg",
+     "credit": "3D model: Ebony& Ivory Guns (Objaverse)",
+     "from": "dataset/objaverse20/pistol/within-class/32_763_0.868.jpg"
+    }
+   ]
+  },
+  {
+   "id": "teddy-bear",
+   "name": "a teddy bear",
+   "set": "imagenet20",
+   "images": [
+    {
+     "src": "images/teddy-bear/1.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/teddy-bear/within-class/24_25181_850_0.719.jpg"
+    },
+    {
+     "src": "images/teddy-bear/2.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/teddy-bear/within-class/26_26677_850_0.707.jpg"
+    },
+    {
+     "src": "images/teddy-bear/3.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/teddy-bear/within-class/02_34466_850_0.808.jpg"
+    },
+    {
+     "src": "images/teddy-bear/4.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/teddy-bear/within-class/16_25274_850_0.749.jpg"
+    },
+    {
+     "src": "images/teddy-bear/5.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/teddy-bear/within-class/32_321_850_0.691.jpg"
+    }
+   ]
+  },
+  {
+   "id": "unicycle",
+   "name": "a unicycle",
+   "set": "imagenet20",
+   "images": [
+    {
+     "src": "images/unicycle/1.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/unicycle/within-class/24_22164_880_0.695.jpg"
+    },
+    {
+     "src": "images/unicycle/2.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/unicycle/within-class/26_46960_880_0.691.jpg"
+    },
+    {
+     "src": "images/unicycle/3.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/unicycle/within-class/02_34576_880_0.838.jpg"
+    },
+    {
+     "src": "images/unicycle/4.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/unicycle/within-class/16_15199_880_0.746.jpg"
+    },
+    {
+     "src": "images/unicycle/5.jpg",
+     "credit": "ImageNet (ILSVRC 2012)",
+     "from": "dataset/imagenet20/unicycle/within-class/32_12095_880_0.664.jpg"
+    }
+   ]
+  }
+ ]
+}
