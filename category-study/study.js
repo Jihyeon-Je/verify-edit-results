@@ -101,6 +101,30 @@
     });
   }
 
+  // In a property box: up/down arrows (and Enter) move to the box above/below; Alt+up/down (Option on a Mac) moves the
+  // property itself up or down a rank.
+  function inputKeys(e, a) {
+    if (e.isComposing) return;  // keys that finish an IME composition (Japanese, Korean, ...) are not ours
+    var ol = $("props"), li = e.target.parentNode, i = Array.prototype.indexOf.call(ol.children, li), n = ol.children.length;
+    var up = e.key === "ArrowUp", down = e.key === "ArrowDown" || (e.key === "Enter" && !e.altKey);
+    if (!up && !down) return;
+    if (e.altKey && e.key !== "Enter") {
+      if (up && i > 0) ol.insertBefore(li, ol.children[i - 1]);
+      else if (!up && i < n - 1) ol.insertBefore(li, ol.children[i + 1].nextSibling);
+      else return;
+      e.preventDefault();
+      e.target.focus();
+      moved(a);
+      return;
+    }
+    var j = up ? i - 1 : i + 1;
+    if (j < 0 || j >= n) return;
+    e.preventDefault();
+    var t = ol.children[j].children[2];
+    t.focus();
+    try { t.setSelectionRange(t.value.length, t.value.length); } catch (err) { /* not every input type has a selection */ }
+  }
+
   function renderCategory() {
     var i = state.step - 1, c = classes[i], a = state.answers[c.id];
     $("bar").style.width = (100 * i / classes.length) + "%";
@@ -123,6 +147,7 @@
       inp.autocomplete = "off";
       inp.value = a.props[k] || "";
       inp.addEventListener("input", function () { sync(a); });
+      inp.addEventListener("keydown", function (e) { inputKeys(e, a); });
       li.appendChild(handle);
       li.appendChild(num);
       li.appendChild(inp);
@@ -193,7 +218,12 @@
   }
 
   function go(step) {
+    var from = state.step;
     leaveCategory();
+    if (from >= 1 && from <= classes.length && filled(classes[from - 1].id).length) {
+      state.pending[classes[from - 1].id] = true;  // leaving a class page saves that class to the sheet
+      flush();
+    }
     state.step = step;
     save();
     if (step === 0) show("welcome");
@@ -201,21 +231,49 @@
     else renderReview();
   }
 
-  function payload() {
+  function row(c, i) {
+    var a = state.answers[c.id];
+    return { id: c.id, name: c.name, position: i + 1, properties: filled(c.id), reorders: a.reorders || 0, viewed_images: a.viewed,
+             image_opens: a.opens, first_view_seconds: a.first_view_ms == null ? null : Math.round(a.first_view_ms / 100) / 10,
+             seconds: Math.round(a.ms / 100) / 10 };
+  }
+  // kind "progress": the given classes, as the participant goes; kind "final": every class, marked completed in the sheet.
+  function payload(kind, ids) {
     return {
       study: CFG.STUDY || "",
+      kind: kind,
       session: state.session,
       participant: state.participant,
       started_at: state.started_at,
-      submitted_at: new Date().toISOString(),
+      submitted_at: kind === "final" ? new Date().toISOString() : "",
       user_agent: navigator.userAgent,
-      classes: classes.map(function (c, i) {
-        var a = state.answers[c.id];
-        return { id: c.id, name: c.name, position: i + 1, properties: filled(c.id), reorders: a.reorders || 0, viewed_images: a.viewed,
-                 image_opens: a.opens, first_view_seconds: a.first_view_ms == null ? null : Math.round(a.first_view_ms / 100) / 10,
-                 seconds: Math.round(a.ms / 100) / 10 };
-      })
+      classes: classes.map(row).filter(function (r) { return !ids || ids.indexOf(r.id) >= 0; })
     };
+  }
+  function post(data) {
+    // text/plain keeps this a simple request (no CORS preflight); the Apps Script reply is readable (it allows any origin), so
+    // a save counts only when the script answers {"ok": true}.
+    return fetch(CFG.SUBMIT_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json(); })
+      .then(function (reply) {
+        if (!reply || reply.ok !== true) throw new Error((reply && reply.error) || "not saved");
+        return reply;
+      });
+  }
+  // Saves go one at a time, in order, so an older save never lands after a newer one; a class whose save failed stays
+  // pending and goes with the next one.
+  var queue = Promise.resolve();
+  function flush() {
+    if (!CFG.SUBMIT_URL) return queue;
+    queue = queue.then(function () {
+      var ids = Object.keys(state.pending || {});
+      if (!ids.length) return;
+      return post(payload("progress", ids)).then(function () {
+        ids.forEach(function (id) { delete state.pending[id]; });
+        save();
+      }, function () { /* kept pending; tried again on the next move */ });
+    });
+    return queue;
   }
 
   function download(data) {
@@ -228,7 +286,7 @@
   }
 
   function submit() {
-    var data = payload();
+    var data = payload("final");
     var err = $("submit-error");
     err.textContent = "";
     if (!CFG.SUBMIT_URL) {
@@ -239,12 +297,9 @@
     }
     $("submit").disabled = true;
     $("submit").textContent = "Sending...";
-    // text/plain keeps this a simple request (no CORS preflight); the Apps Script reply is readable (it allows any origin), so
-    // a submission counts as saved only when the script answers {"ok": true}.
-    fetch(CFG.SUBMIT_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) })
-      .then(function (r) { return r.json(); })
-      .then(function (reply) {
-        if (!reply || reply.ok !== true) throw new Error((reply && reply.error) || "not saved");
+    queue.then(function () { return post(data); })
+      .then(function () {
+        state.pending = {};
         state.submitted = data.submitted_at;
         save();
         $("code").textContent = state.session;
@@ -263,6 +318,7 @@
     classes = manifest.classes;
     state = load();
     if (!state || state.submitted || !state.answers || classes.some(function (c) { return !state.answers[c.id]; })) state = fresh();
+    state.pending = state.pending || {};
     $("participant").value = state.participant || "";
     $("participant").addEventListener("input", function (e) { state.participant = e.target.value.trim(); save(); });
     $("start").addEventListener("click", function () { go(1); });
@@ -277,7 +333,16 @@
     });
     $("review-back").addEventListener("click", function () { go(classes.length); });
     $("submit").addEventListener("click", submit);
-    window.addEventListener("pagehide", function () { leaveCategory(); save(); });
+    window.addEventListener("pagehide", function () {
+      // closing the tab mid-way: save the open class and anything still pending (sendBeacon outlives the page)
+      if (state.step >= 1 && state.step <= classes.length && filled(classes[state.step - 1].id).length) state.pending[classes[state.step - 1].id] = true;
+      leaveCategory();
+      save();
+      var ids = Object.keys(state.pending || {});
+      if (CFG.SUBMIT_URL && ids.length && navigator.sendBeacon) {
+        navigator.sendBeacon(CFG.SUBMIT_URL, new Blob([JSON.stringify(payload("progress", ids))], { type: "text/plain;charset=utf-8" }));
+      }
+    });
     go(Math.min(state.step || 0, classes.length + 1));
   }
 
