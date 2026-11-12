@@ -167,22 +167,35 @@
     ol.querySelector("input").focus();
   }
 
+  // The image viewer: one example large, with previous/next (buttons or the left/right keys) through the class's examples.
+  var viewing = null;
+  function viewImage(c, n) {
+    viewing = { c: c, n: (n + c.images.length) % c.images.length };
+    var big = $("img-big");
+    big.src = c.images[viewing.n].src;
+    big.alt = "Example " + (viewing.n + 1) + " of " + c.name;
+    $("img-count").textContent = (viewing.n + 1) + " / " + c.images.length;
+    var dlg = $("img-dialog");
+    if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); }
+  }
+
   function toggleGallery() {
     var c = classes[state.step - 1], a = state.answers[c.id], g = $("gallery");
     if (g.hidden) {
       if (!g.childElementCount) {
-        c.images.forEach(function (im) {
+        c.images.forEach(function (im, n) {
           var fig = document.createElement("figure");
-          var link = document.createElement("a");
-          link.href = im.src;
-          link.target = "_blank";
-          link.rel = "noopener";
+          var open = document.createElement("button");  // opens the image in the viewer on the page (not a new tab)
+          open.type = "button";
+          open.className = "thumb";
+          open.setAttribute("aria-label", "Enlarge example " + (n + 1) + " of " + c.images.length);
           var img = document.createElement("img");
           img.src = im.src;
           img.alt = "Example of " + c.name;
           img.loading = "lazy";
-          link.appendChild(img);
-          fig.appendChild(link);
+          open.appendChild(img);
+          open.addEventListener("click", function () { viewImage(c, n); });
+          fig.appendChild(open);
           g.appendChild(fig);  // no caption under the image (the user, 2026-11-11); the credits are on credits.html
         });
       }
@@ -332,6 +345,14 @@
       if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
     });
     dlg.addEventListener("click", function (e) { if (e.target === dlg && dlg.close) dlg.close(); });  // a click outside the box
+    var idlg = $("img-dialog");
+    $("img-prev").addEventListener("click", function () { viewImage(viewing.c, viewing.n - 1); });
+    $("img-next").addEventListener("click", function () { viewImage(viewing.c, viewing.n + 1); });
+    idlg.addEventListener("click", function (e) { if (e.target === idlg && idlg.close) idlg.close(); });
+    idlg.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); viewImage(viewing.c, viewing.n - 1); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); viewImage(viewing.c, viewing.n + 1); }
+    });
     $("back").addEventListener("click", function () { go(state.step - 1); });
     $("next").addEventListener("click", function () {
       if (!filled(classes[state.step - 1].id).length) {

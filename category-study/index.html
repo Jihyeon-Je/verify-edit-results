@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Describing Object Classes</title>
-<link rel="stylesheet" href="style.css?v=c5441d58">
+<link rel="stylesheet" href="style.css?v=bba853cc">
 </head>
 <body>
 <main id="app">
@@ -78,12 +78,21 @@
     <p class="fine">Response code: <code id="code"></code></p>
   </section>
 </main>
+<dialog id="img-dialog" class="viewer" aria-label="Example image">
+  <img id="img-big" alt="">
+  <form method="dialog" class="viewer-bar">
+    <button id="img-prev" class="secondary" type="button" aria-label="Previous example">&larr;</button>
+    <span id="img-count" class="fine"></span>
+    <button id="img-next" class="secondary" type="button" aria-label="Next example">&rarr;</button>
+    <button class="primary">Close</button>
+  </form>
+</dialog>
 <dialog id="help-dialog" aria-labelledby="help-title">
   <h1 id="help-title">Instructions</h1>
   <div id="help-body"></div>
   <form method="dialog" class="nav"><span></span><button class="primary">Close</button></form>
 </dialog>
 <script src="config.js?v=f9fcfd6b"></script>
-<script src="study.js?v=70a1380b"></script>
+<script src="study.js?v=248cdf2c"></script>
 </body>
 </html>
