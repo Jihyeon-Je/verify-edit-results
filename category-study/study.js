@@ -239,10 +239,12 @@
     }
     $("submit").disabled = true;
     $("submit").textContent = "Sending...";
-    // text/plain keeps this a simple request (no CORS preflight), which Apps Script web apps accept.
-    fetch(CFG.SUBMIT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" },
-                            body: JSON.stringify(data) })
-      .then(function () {
+    // text/plain keeps this a simple request (no CORS preflight); the Apps Script reply is readable (it allows any origin), so
+    // a submission counts as saved only when the script answers {"ok": true}.
+    fetch(CFG.SUBMIT_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json(); })
+      .then(function (reply) {
+        if (!reply || reply.ok !== true) throw new Error((reply && reply.error) || "not saved");
         state.submitted = data.submitted_at;
         save();
         $("code").textContent = state.session;
@@ -251,7 +253,7 @@
       .catch(function () {
         $("submit").disabled = false;
         $("submit").textContent = "Submit";
-        err.textContent = "Your answers could not be sent (no connection?). Please try again, or ";
+        err.textContent = "Your answers could not be saved. Please try again, or ";
         err.appendChild(download(data));
         err.appendChild(document.createTextNode(" and send the file to the researcher."));
       });
