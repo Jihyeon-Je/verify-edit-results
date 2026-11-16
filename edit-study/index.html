@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which Is Better?</title>
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+<main id="app">
+  <section id="welcome" class="step narrow">
+    <h1>Which is better?</h1>
+    <div id="instructions">
+      <p class="lead">Thank you for helping with this study! You will see <b><span class="n-pairs">40</span> pairs</b> of objects,
+        one pair per page. It should take about 10 minutes.</p>
+      <div class="note">
+        <h2>What to do</h2>
+        <p>Each page names a <b>class</b> at the top, such as "a pelican". Below it are two versions of an object of that class,
+          <b>A</b> and <b>B</b>, each made by a computer program. Choose the one that is a <b>better example of the class</b>:
+          the one whose parts, shapes, colors and arrangement better match what an object of that class looks like.</p>
+        <ul class="choices">
+          <li><span class="key">A</span> A is better</li>
+          <li><span class="key">B</span> B is better</li>
+          <li><span class="key">S</span> Same: neither is better than the other</li>
+        </ul>
+        <p>Some pairs are flat 2D drawings. Others are 3D models shown from <b>two viewpoints side by side</b>: both views in a box
+          are the same object. Judge the object, not the drawing style or the lighting, which are the same for A and B.</p>
+      </div>
+      <div class="note keys">
+        <h2>Keyboard</h2>
+        <p><span class="key">A</span> <span class="key">B</span> <span class="key">S</span> choose &nbsp;&middot;&nbsp;
+          <span class="key">&larr;</span> <span class="key">&rarr;</span> previous / next pair</p>
+        <p class="fine">You can also click. You can go back and change an answer at any time before you submit.</p>
+      </div>
+    </div>
+    <label class="field">Your name or participant ID (optional)
+      <input id="participant" type="text" autocomplete="off" maxlength="80">
+    </label>
+    <button id="start" class="primary">Start</button>
+  </section>
+
+  <section id="pair" class="step wide" hidden>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="topline">
+      <p class="count" id="count"></p>
+      <button id="help" class="secondary small" type="button" aria-haspopup="dialog">Instructions</button>
+    </div>
+    <p class="class-label">Class</p>
+    <h1 id="name" class="class-name"></h1>
+    <p class="reminder">Which is a better example of <b id="name2"></b>? <span id="views-note"></span>
+      Press <span class="key">A</span>, <span class="key">B</span> or <span class="key">S</span> (same);
+      <span class="key">&larr;</span> <span class="key">&rarr;</span> to move.</p>
+    <div class="sides">
+      <figure class="side" id="side-A">
+        <figcaption>A</figcaption>
+        <div class="frame"><img id="img-A" alt="Version A"></div>
+      </figure>
+      <figure class="side" id="side-B">
+        <figcaption>B</figcaption>
+        <div class="frame"><img id="img-B" alt="Version B"></div>
+      </figure>
+    </div>
+    <div class="answer" role="radiogroup" aria-label="Which is better?">
+      <button type="button" class="choice" data-choice="A" role="radio" aria-checked="false"><span class="key">A</span> A is better</button>
+      <button type="button" class="choice" data-choice="B" role="radio" aria-checked="false"><span class="key">B</span> B is better</button>
+      <button type="button" class="choice" data-choice="same" role="radio" aria-checked="false"><span class="key">S</span> Same</button>
+    </div>
+    <div class="nav">
+      <button id="back" class="secondary" type="button">&larr; Previous</button>
+      <button id="next" class="primary" type="button">Next &rarr;</button>
+    </div>
+  </section>
+
+  <section id="review" class="step narrow" hidden>
+    <h1>Ready to submit</h1>
+    <p id="review-text"></p>
+    <ul id="missing" class="missing"></ul>
+    <p id="submit-error" class="error" role="alert"></p>
+    <div class="nav">
+      <button id="review-back" class="secondary" type="button">&larr; Back</button>
+      <button id="submit" class="primary" type="button">Submit</button>
+    </div>
+  </section>
+
+  <section id="done" class="step narrow" hidden>
+    <h1>Thank you!</h1>
+    <p>Your answers were sent. You can close this page.</p>
+    <p class="fine">Response code: <code id="code"></code></p>
+  </section>
+</main>
+
+<dialog id="help-dialog" aria-label="Instructions">
+  <div id="help-body"></div>
+  <div class="nav"><span></span><button id="help-close" class="primary" type="button">Close</button></div>
+</dialog>
+
+<script src="config.js?v=1"></script>
+<script src="study.js?v=1"></script>
+</body>
+</html>
