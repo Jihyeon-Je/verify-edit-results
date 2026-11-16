@@ -201,10 +201,12 @@
   function onKey(e) {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     if ($("help-dialog").open) return;  // Escape closes it
-    var t = e.target;
+    var t = e.target, k = e.key;
+    if (state.at === "welcome" && k === "Enter" && (!t || t.tagName !== "BUTTON")) { start(); e.preventDefault(); return; }
     if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA")) return;
-    var k = e.key;
+    if (k === "Enter" && t && t.tagName === "BUTTON") return;  // a focused button handles its own Enter
     if (state.at === "pair") {
+      if (k === "Enter") { go(state.index + 1); e.preventDefault(); return; }
       if (k === "a" || k === "A") { choose("A"); e.preventDefault(); }
       else if (k === "b" || k === "B") { choose("B"); e.preventDefault(); }
       else if (k === "s" || k === "S") { choose("same"); e.preventDefault(); }
