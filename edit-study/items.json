@@ -4,319 +4,319 @@
   "name": "a strawberry",
   "medium": "blender",
   "ref": "images/ref/r01.jpg",
-  "A": "images/q01_A.png",
-  "B": "images/q01_B.png"
+  "A": "images/q01_A.png?v=4946d190",
+  "B": "images/q01_B.png?v=dfb03e85"
  },
  {
   "id": "q02",
   "name": "an Audi R8",
   "medium": "blender",
   "ref": "images/ref/r02.jpg",
-  "A": "images/q02_A.png",
-  "B": "images/q02_B.png"
+  "A": "images/q02_A.png?v=3414a717",
+  "B": "images/q02_B.png?v=a1ee69b5"
  },
  {
   "id": "q03",
   "name": "a tangerine shaggy camel with tasseled humps",
   "medium": "svg",
   "ref": "images/ref/r03.jpg",
-  "A": "images/q03_A.png",
-  "B": "images/q03_B.png"
+  "A": "images/q03_A.png?v=9acf21db",
+  "B": "images/q03_B.png?v=925eef89"
  },
  {
   "id": "q04",
   "name": "a Thai tuk-tuk",
   "medium": "svg",
   "ref": "images/ref/r04.jpg",
-  "A": "images/q04_A.png",
-  "B": "images/q04_B.png"
+  "A": "images/q04_A.png?v=3c516c7a",
+  "B": "images/q04_B.png?v=61ebba2d"
  },
  {
   "id": "q05",
   "name": "a vending machine",
   "medium": "blender",
   "ref": "images/ref/r05.jpg",
-  "A": "images/q05_A.png",
-  "B": "images/q05_B.png"
+  "A": "images/q05_A.png?v=ff9e397f",
+  "B": "images/q05_B.png?v=1360dae3"
  },
  {
   "id": "q06",
   "name": "a Balinese split gate",
   "medium": "svg",
   "ref": "images/ref/r06.jpg",
-  "A": "images/q06_A.png",
-  "B": "images/q06_B.png"
+  "A": "images/q06_A.png?v=eb187d9b",
+  "B": "images/q06_B.png?v=fa8ce5ca"
  },
  {
   "id": "q07",
   "name": "a gorilla",
   "medium": "blender",
   "ref": "images/ref/r07.jpg",
-  "A": "images/q07_A.png",
-  "B": "images/q07_B.png"
+  "A": "images/q07_A.png?v=69fcd3f6",
+  "B": "images/q07_B.png?v=fc43c649"
  },
  {
   "id": "q08",
   "name": "a London Routemaster bus",
   "medium": "svg",
   "ref": "images/ref/r08.jpg",
-  "A": "images/q08_A.png",
-  "B": "images/q08_B.png"
+  "A": "images/q08_A.png?v=cd7d879c",
+  "B": "images/q08_B.png?v=77de1b7b"
  },
  {
   "id": "q09",
   "name": "a zebra",
   "medium": "svg",
   "ref": "images/ref/r09.jpg",
-  "A": "images/q09_A.png",
-  "B": "images/q09_B.png"
+  "A": "images/q09_A.png?v=14d3fb29",
+  "B": "images/q09_B.png?v=86bf13ea"
  },
  {
   "id": "q10",
   "name": "an indigo copper-spiral sunflower",
   "medium": "blender",
   "ref": "images/ref/r10.jpg",
-  "A": "images/q10_A.png",
-  "B": "images/q10_B.png"
+  "A": "images/q10_A.png?v=aef1d3b5",
+  "B": "images/q10_B.png?v=8003362d"
  },
  {
   "id": "q11",
   "name": "a ladybug",
   "medium": "blender",
   "ref": "images/ref/r11.jpg",
-  "A": "images/q11_A.png",
-  "B": "images/q11_B.png"
+  "A": "images/q11_A.png?v=aa484940",
+  "B": "images/q11_B.png?v=fa1df607"
  },
  {
   "id": "q12",
   "name": "a pelican",
   "medium": "svg",
   "ref": "images/ref/r12.jpg",
-  "A": "images/q12_A.png",
-  "B": "images/q12_B.png"
+  "A": "images/q12_A.png?v=55e02451",
+  "B": "images/q12_B.png?v=6417a888"
  },
  {
   "id": "q13",
   "name": "a lime-green monster-wheel school bus",
   "medium": "blender",
   "ref": "images/ref/r13.jpg",
-  "A": "images/q13_A.png",
-  "B": "images/q13_B.png"
+  "A": "images/q13_A.png?v=e706cca6",
+  "B": "images/q13_B.png?v=70b25dcf"
  },
  {
   "id": "q14",
   "name": "a telephone booth",
   "medium": "blender",
   "ref": "images/ref/r14.jpg",
-  "A": "images/q14_A.png",
-  "B": "images/q14_B.png"
+  "A": "images/q14_A.png?v=51e332bc",
+  "B": "images/q14_B.png?v=12d67c36"
  },
  {
   "id": "q15",
   "name": "a Balinese split gate",
   "medium": "blender",
   "ref": "images/ref/r06.jpg",
-  "A": "images/q15_A.png",
-  "B": "images/q15_B.png"
+  "A": "images/q15_A.png?v=d17066e4",
+  "B": "images/q15_B.png?v=eabbf344"
  },
  {
   "id": "q16",
   "name": "a tangerine shaggy camel with tasseled humps",
   "medium": "blender",
   "ref": "images/ref/r03.jpg",
-  "A": "images/q16_A.png",
-  "B": "images/q16_B.png"
+  "A": "images/q16_A.png?v=1449b559",
+  "B": "images/q16_B.png?v=f6f7fb0d"
  },
  {
   "id": "q17",
   "name": "a pelican",
   "medium": "blender",
   "ref": "images/ref/r12.jpg",
-  "A": "images/q17_A.png",
-  "B": "images/q17_B.png"
+  "A": "images/q17_A.png?v=d73b397a",
+  "B": "images/q17_B.png?v=4e49c983"
  },
  {
   "id": "q18",
   "name": "a ladybug",
   "medium": "svg",
   "ref": "images/ref/r11.jpg",
-  "A": "images/q18_A.png",
-  "B": "images/q18_B.png"
+  "A": "images/q18_A.png?v=d4ad2043",
+  "B": "images/q18_B.png?v=f26cea99"
  },
  {
   "id": "q19",
   "name": "a starry navy dolphin with a crystal fin",
   "medium": "blender",
   "ref": "images/ref/r15.jpg",
-  "A": "images/q19_A.png",
-  "B": "images/q19_B.png"
+  "A": "images/q19_A.png?v=349fb634",
+  "B": "images/q19_B.png?v=029b8f39"
  },
  {
   "id": "q20",
   "name": "a Paris Métro Guimard entrance",
   "medium": "blender",
   "ref": "images/ref/r16.jpg",
-  "A": "images/q20_A.png",
-  "B": "images/q20_B.png"
+  "A": "images/q20_A.png?v=42815a6d",
+  "B": "images/q20_B.png?v=1392c4d2"
  },
  {
   "id": "q21",
   "name": "a crab",
   "medium": "svg",
   "ref": "images/ref/r17.jpg",
-  "A": "images/q21_A.png",
-  "B": "images/q21_B.png"
+  "A": "images/q21_A.png?v=5d2ca6a9",
+  "B": "images/q21_B.png?v=88895131"
  },
  {
   "id": "q22",
   "name": "a strawberry",
   "medium": "svg",
   "ref": "images/ref/r01.jpg",
-  "A": "images/q22_A.png",
-  "B": "images/q22_B.png"
+  "A": "images/q22_A.png?v=ea38ecdd",
+  "B": "images/q22_B.png?v=d74d46b9"
  },
  {
   "id": "q23",
   "name": "a lion",
   "medium": "svg",
   "ref": "images/ref/r18.jpg",
-  "A": "images/q23_A.png",
-  "B": "images/q23_B.png"
+  "A": "images/q23_A.png?v=ae5cf06c",
+  "B": "images/q23_B.png?v=327fa089"
  },
  {
   "id": "q24",
   "name": "a lion",
   "medium": "blender",
   "ref": "images/ref/r18.jpg",
-  "A": "images/q24_A.png",
-  "B": "images/q24_B.png"
+  "A": "images/q24_A.png?v=599de489",
+  "B": "images/q24_B.png?v=811e2ce8"
  },
  {
   "id": "q25",
   "name": "a British K6 telephone box",
   "medium": "blender",
   "ref": "images/ref/r19.jpg",
-  "A": "images/q25_A.png",
-  "B": "images/q25_B.png"
+  "A": "images/q25_A.png?v=8727a4e4",
+  "B": "images/q25_B.png?v=c3a04d02"
  },
  {
   "id": "q26",
   "name": "a bicycle",
   "medium": "blender",
   "ref": "images/ref/r20.jpg",
-  "A": "images/q26_A.png",
-  "B": "images/q26_B.png"
+  "A": "images/q26_A.png?v=e5774782",
+  "B": "images/q26_B.png?v=f8adbc8d"
  },
  {
   "id": "q27",
   "name": "a vending machine",
   "medium": "svg",
   "ref": "images/ref/r05.jpg",
-  "A": "images/q27_A.png",
-  "B": "images/q27_B.png"
+  "A": "images/q27_A.png?v=632035b5",
+  "B": "images/q27_B.png?v=addeb0e6"
  },
  {
   "id": "q28",
   "name": "a crystal raven-winged sword",
   "medium": "svg",
   "ref": "images/ref/r21.jpg",
-  "A": "images/q28_A.png",
-  "B": "images/q28_B.png"
+  "A": "images/q28_A.png?v=cbc72ac2",
+  "B": "images/q28_B.png?v=35a62539"
  },
  {
   "id": "q29",
   "name": "a shopping cart",
   "medium": "svg",
   "ref": "images/ref/r22.jpg",
-  "A": "images/q29_A.png",
-  "B": "images/q29_B.png"
+  "A": "images/q29_A.png?v=b607e9e3",
+  "B": "images/q29_B.png?v=a90baf74"
  },
  {
   "id": "q30",
   "name": "a lime-green monster-wheel school bus",
   "medium": "svg",
   "ref": "images/ref/r13.jpg",
-  "A": "images/q30_A.png",
-  "B": "images/q30_B.png"
+  "A": "images/q30_A.png?v=7aa41b2b",
+  "B": "images/q30_B.png?v=550c1847"
  },
  {
   "id": "q31",
   "name": "a Japanese maneki-neko",
   "medium": "svg",
   "ref": "images/ref/r23.jpg",
-  "A": "images/q31_A.png",
-  "B": "images/q31_B.png"
+  "A": "images/q31_A.png?v=6049e7fd",
+  "B": "images/q31_B.png?v=64fbae4c"
  },
  {
   "id": "q32",
   "name": "an indigo copper-spiral sunflower",
   "medium": "svg",
   "ref": "images/ref/r10.jpg",
-  "A": "images/q32_A.png",
-  "B": "images/q32_B.png"
+  "A": "images/q32_A.png?v=b0140a75",
+  "B": "images/q32_B.png?v=e29b788f"
  },
  {
   "id": "q33",
   "name": "a zebra",
   "medium": "blender",
   "ref": "images/ref/r09.jpg",
-  "A": "images/q33_A.png",
-  "B": "images/q33_B.png"
+  "A": "images/q33_A.png?v=c3e519a8",
+  "B": "images/q33_B.png?v=da0d4caa"
  },
  {
   "id": "q34",
   "name": "a turquoise-striped golden-maned zebra",
   "medium": "blender",
   "ref": "images/ref/r24.jpg",
-  "A": "images/q34_A.png",
-  "B": "images/q34_B.png"
+  "A": "images/q34_A.png?v=967d9eb6",
+  "B": "images/q34_B.png?v=3d3ed1f1"
  },
  {
   "id": "q35",
   "name": "a patchwork bat-winged teddy bear",
   "medium": "blender",
   "ref": "images/ref/r25.jpg",
-  "A": "images/q35_A.png",
-  "B": "images/q35_B.png"
+  "A": "images/q35_A.png?v=2ae27f86",
+  "B": "images/q35_B.png?v=b3fa845c"
  },
  {
   "id": "q36",
   "name": "a violin",
   "medium": "svg",
   "ref": "images/ref/r26.jpg",
-  "A": "images/q36_A.png",
-  "B": "images/q36_B.png"
+  "A": "images/q36_A.png?v=bc6f2db0",
+  "B": "images/q36_B.png?v=86b9efed"
  },
  {
   "id": "q37",
   "name": "a gorilla",
   "medium": "svg",
   "ref": "images/ref/r07.jpg",
-  "A": "images/q37_A.png",
-  "B": "images/q37_B.png"
+  "A": "images/q37_A.png?v=85ca7b52",
+  "B": "images/q37_B.png?v=09ba6027"
  },
  {
   "id": "q38",
   "name": "a bicycle",
   "medium": "svg",
   "ref": "images/ref/r20.jpg",
-  "A": "images/q38_A.png",
-  "B": "images/q38_B.png"
+  "A": "images/q38_A.png?v=e893bf16",
+  "B": "images/q38_B.png?v=9be6a0e2"
  },
  {
   "id": "q39",
   "name": "a school bus",
   "medium": "svg",
   "ref": "images/ref/r27.jpg",
-  "A": "images/q39_A.png",
-  "B": "images/q39_B.png"
+  "A": "images/q39_A.png?v=26fad6dd",
+  "B": "images/q39_B.png?v=b289fedb"
  },
  {
   "id": "q40",
   "name": "a Japanese maneki-neko",
   "medium": "blender",
   "ref": "images/ref/r23.jpg",
-  "A": "images/q40_A.png",
-  "B": "images/q40_B.png"
+  "A": "images/q40_A.png?v=132a1566",
+  "B": "images/q40_B.png?v=89af7f10"
  }
 ]

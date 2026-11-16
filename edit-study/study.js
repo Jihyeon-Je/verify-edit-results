@@ -272,7 +272,7 @@
     else show("welcome");
   }
 
-  fetch("items.json?v=2").then(function (r) { return r.json(); }).then(init, function () {
+  fetch("items.json?v=3").then(function (r) { return r.json(); }).then(init, function () {
     document.getElementById("app").innerHTML = '<section class="step narrow"><h1>Could not load the study</h1>' +
       "<p>Please reload the page.</p></section>";
   });
