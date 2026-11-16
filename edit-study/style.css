@@ -47,8 +47,8 @@ button.small { padding: 6px 12px; font-size: 14px; }
 .side.chosen figcaption { background: var(--accent); color: var(--accent-ink); }
 .frame { display: flex; align-items: center; justify-content: center; height: min(calc(100vh - 400px), 600px); min-height: 240px; padding: 8px; background: #fff; }
 .frame img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
-.answer { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
-.choice { background: var(--panel); color: var(--ink); border: 1px solid var(--line); padding: 12px 10px; }
+.answer { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 14px; }
+.choice { background: var(--panel); color: var(--ink); border: 1px solid var(--line); padding: 8px 16px; min-width: 140px; }
 .choice:hover { border-color: var(--accent); }
 .choice[aria-checked=true] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .choice[aria-checked=true] .key { background: transparent; color: var(--accent-ink); border-color: currentColor; }
@@ -69,5 +69,5 @@ dialog::backdrop { background: rgba(0, 0, 0, .45); }
   .step, .step.wide { padding: 18px 16px; }
   h1 { font-size: 22px; }
   .class-name { font-size: 24px; }
-  .answer { grid-template-columns: 1fr; }
+  .choice { min-width: 0; padding: 8px 12px; }
 }
