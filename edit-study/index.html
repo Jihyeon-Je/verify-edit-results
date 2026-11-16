@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Which Is Better?</title>
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 <main id="app">
@@ -25,12 +25,16 @@
         </ul>
         <p>Some pairs are SVG drawings. Others are 3D models shown from <b>two viewpoints side by side</b>: both views in a box
           are the same object. Judge the object, not the drawing style or the lighting, which are the same for A and B.</p>
+        <p>Each page has a <b>Reference image</b> button that shows one image of the class. Please note that it is only a
+          <b>single instance</b> of the class, not a representative example: members of the class can look different from it,
+          and A or B does not need to look like it to be a good example of the class.</p>
       </div>
       <div class="note keys">
         <h2>Keyboard</h2>
         <p><span class="key">A</span> <span class="key">B</span> <span class="key">S</span> choose &nbsp;&middot;&nbsp;
           <span class="key">Enter</span> next pair &nbsp;&middot;&nbsp;
-          <span class="key">&larr;</span> <span class="key">&rarr;</span> previous / next pair</p>
+          <span class="key">&larr;</span> <span class="key">&rarr;</span> previous / next pair &nbsp;&middot;&nbsp;
+          <span class="key">R</span> reference image</p>
         <p class="fine">You can also click. You can go back and change an answer at any time before you submit.</p>
       </div>
     </div>
@@ -38,6 +42,7 @@
       <input id="participant" type="text" autocomplete="off" maxlength="80">
     </label>
     <button id="start" class="primary">Start</button>
+    <p class="fine credits"><a href="credits.html" target="_blank" rel="noopener">Image credits</a></p>
   </section>
 
   <section id="pair" class="step wide" hidden>
@@ -47,7 +52,10 @@
       <button id="help" class="secondary small" type="button" aria-haspopup="dialog">Instructions</button>
     </div>
     <p class="class-label">Class</p>
-    <h1 id="name" class="class-name"></h1>
+    <div class="class-line">
+      <h1 id="name" class="class-name"></h1>
+      <button id="ref" class="secondary small" type="button" aria-haspopup="dialog">Reference image <span class="key">R</span></button>
+    </div>
     <p class="reminder">Which is a better example of <b id="name2"></b>? <span id="views-note"></span>
       Press <span class="key">A</span>, <span class="key">B</span> or <span class="key">S</span> (same), then
       <span class="key">Enter</span> for the next pair; <span class="key">&larr;</span> <span class="key">&rarr;</span> to move.</p>
@@ -95,7 +103,15 @@
   <div class="nav"><span></span><button id="help-close" class="primary" type="button">Close</button></div>
 </dialog>
 
+<dialog id="ref-dialog" class="ref-dialog" aria-label="Reference image">
+  <p class="ref-title">Reference image: <b id="ref-name"></b></p>
+  <img id="ref-img" alt="A reference image of one instance of the class">
+  <p class="ref-note">This is only a <b>single instance</b> of the class, not a representative example. Members of the class can
+    look different from it, and A or B does not need to look like it to be a good example of the class.</p>
+  <div class="nav"><span></span><button id="ref-close" class="primary" type="button">Close</button></div>
+</dialog>
+
 <script src="config.js?v=1"></script>
-<script src="study.js?v=2"></script>
+<script src="study.js?v=3"></script>
 </body>
 </html>

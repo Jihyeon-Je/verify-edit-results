@@ -22,7 +22,7 @@
   }
   function fresh() {
     var s = { session: token(), participant: "", started_at: null, at: "welcome", index: 0, answers: {}, pending: {}, done: false };
-    items.forEach(function (it) { s.answers[it.id] = { choice: null, changes: 0, first_ms: null, ms: 0 }; });
+    items.forEach(function (it) { s.answers[it.id] = { choice: null, changes: 0, first_ms: null, ms: 0, ref_opens: 0 }; });
     return s;
   }
   function answered() { return items.filter(function (it) { return state.answers[it.id].choice; }).length; }
@@ -113,7 +113,7 @@
   function row(it, i) {
     var a = state.answers[it.id];
     return { id: it.id, name: it.name, position: i + 1, properties: [a.choice || "", it.medium], reorders: a.changes,
-             viewed_images: false, image_opens: 0, first_view_seconds: a.first_ms === null ? null : Math.round(a.first_ms / 100) / 10,
+             viewed_images: (a.ref_opens || 0) > 0, image_opens: a.ref_opens || 0, first_view_seconds: a.first_ms === null ? null : Math.round(a.first_ms / 100) / 10,
              seconds: Math.round(a.ms / 100) / 10 };
   }
   function payload(kind, ids) {
@@ -191,6 +191,22 @@
     var d = $("help-dialog");
     if (typeof d.close === "function") d.close(); else d.removeAttribute("open");
   }
+  // the reference image of the current pair's class; each opening is counted for the pair (image_opens in the sheet)
+  function openRef() {
+    var d = $("ref-dialog");
+    if (d.open || state.at !== "pair") return;
+    var it = items[state.index], a = state.answers[it.id];
+    $("ref-name").textContent = it.name;
+    $("ref-img").src = it.ref;
+    a.ref_opens = (a.ref_opens || 0) + 1;
+    state.pending[it.id] = true;
+    save();
+    if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", "");
+  }
+  function closeRef() {
+    var d = $("ref-dialog");
+    if (typeof d.close === "function") d.close(); else d.removeAttribute("open");
+  }
 
   function start() {
     state.participant = $("participant").value.trim();
@@ -201,6 +217,10 @@
   function onKey(e) {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     if ($("help-dialog").open) return;  // Escape closes it
+    if ($("ref-dialog").open) {
+      if (e.key === "r" || e.key === "R" || e.key === "Enter") { closeRef(); e.preventDefault(); }
+      return;
+    }
     var t = e.target, k = e.key;
     if (state.at === "welcome" && k === "Enter" && (!t || t.tagName !== "BUTTON")) { start(); e.preventDefault(); return; }
     if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA")) return;
@@ -210,6 +230,7 @@
       if (k === "a" || k === "A") { choose("A"); e.preventDefault(); }
       else if (k === "b" || k === "B") { choose("B"); e.preventDefault(); }
       else if (k === "s" || k === "S") { choose("same"); e.preventDefault(); }
+      else if (k === "r" || k === "R") { openRef(); e.preventDefault(); }
       else if (k === "ArrowRight") { go(state.index + 1); e.preventDefault(); }
       else if (k === "ArrowLeft") { if (state.index > 0) go(state.index - 1); e.preventDefault(); }
     } else if (state.at === "review" && k === "ArrowLeft") {
@@ -235,6 +256,8 @@
     $("submit").addEventListener("click", submit);
     $("help").addEventListener("click", openHelp);
     $("help-close").addEventListener("click", closeHelp);
+    $("ref").addEventListener("click", function () { openRef(); $("ref").blur(); });
+    $("ref-close").addEventListener("click", closeRef);
     Array.prototype.forEach.call(document.querySelectorAll(".choice"), function (b) {
       b.addEventListener("click", function () { choose(b.dataset.choice); b.blur(); });
     });
@@ -249,7 +272,7 @@
     else show("welcome");
   }
 
-  fetch("items.json?v=1").then(function (r) { return r.json(); }).then(init, function () {
+  fetch("items.json?v=2").then(function (r) { return r.json(); }).then(init, function () {
     document.getElementById("app").innerHTML = '<section class="step narrow"><h1>Could not load the study</h1>' +
       "<p>Please reload the page.</p></section>";
   });
